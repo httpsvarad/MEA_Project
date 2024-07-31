@@ -114,7 +114,7 @@ export default function Page() {
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  placeholder="Your fullName"
+                  placeholder="Your Full Name"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <input
@@ -124,7 +124,7 @@ export default function Page() {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                  placeholder="Your email"
+                  placeholder="Your Email"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <input
@@ -134,7 +134,7 @@ export default function Page() {
                   onChange={(e) => {
                     setNumber(e.target.value);
                   }}
-                  placeholder="Your contactNumber"
+                  placeholder="Your Contact Number"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <input
@@ -144,7 +144,7 @@ export default function Page() {
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
-                  placeholder="Your address"
+                  placeholder="Your Address"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <textarea
@@ -153,7 +153,7 @@ export default function Page() {
                   onChange={(e) => {
                     setMessage(e.target.value);
                   }}
-                  placeholder="message"
+                  placeholder="Your Message"
                   className="px-4 py-2 focus:outline-none border-b border-black h-32 resize-none"
                 />
                 <button

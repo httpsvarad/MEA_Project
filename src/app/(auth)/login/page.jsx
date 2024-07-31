@@ -1,6 +1,8 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import OnScrollAnimation from '../../../Components/OnScrollAnimmation';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function RegisterForm() {
   useEffect(()=> {
@@ -23,25 +25,30 @@ export default function RegisterForm() {
        //    OnScrollAnimation(hiddenElement2)
     }
     },[]);
-
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-  });
-
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      [name]: value
-    });
-  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log('Form submitted', form);
+    try{
+      const res = await signIn("credentials",{
+        redirect: false,
+        email,
+        password,
+      });
+      console.log(res)
+      if(res?.error){
+        alert("Invalid credentials");
+        return
+      }
+      router.push("/profile")
+    } catch (error) {
+      alert(error.message)
+    }
+    
   };
 
   return (
@@ -53,8 +60,8 @@ export default function RegisterForm() {
           <input
             type="email"
             name="email"
-            value={form.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
             required
           />
@@ -64,8 +71,8 @@ export default function RegisterForm() {
           <input
             type="password"
             name="password"
-            value={form.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
             required
           />

@@ -144,11 +144,13 @@ export default function Header() {
                         </Link>
                         <Link href={'/register'}>
                         <h3 className="cursor-pointer	hidden xl:flex">Member Registration</h3>
-                        </Link>    
+                        </Link>     
+                        <Link href={'/profile'}>
+                        <h3 className="cursor-pointer	hidden xl:flex">Profile</h3>
+                        </Link>
                         <div>
                         <GoogleTranslate/>    
-                        </div>                  
-
+                        </div>               
                     </div>
                     </div>
                     <div className="HamBurgerIcon flex justify-center h-[13vh] justify-items-center pr-7 xl:hidden" onChange={() => setActive(!active)}>

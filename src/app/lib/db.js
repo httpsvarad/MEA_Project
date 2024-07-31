@@ -30,17 +30,10 @@ export default async function executeQuery({ query, values }) {
     // Ensure the database exists before setting it in the config
     await createDatabaseIfNotExists();
 
-    // Split queries by semicolons and filter out empty strings
-    const queries = query.split(';').filter(Boolean);
-    const results = [];
-
-    for (const q of queries) {
-      const [rows] = await connection.execute(q.trim(), values);
-      results.push(rows);
-    }
-
-    return results;
+    const [rows] = await connection.execute(query, values);
+    return rows;
   } catch (error) {
+    console.error("Error executing query:", error);
     return { error };
   } finally {
     await connection.end();
