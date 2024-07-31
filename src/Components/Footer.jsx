@@ -44,7 +44,7 @@ export default function Footer() {
         </section>
       <section className="p-5 h-16 bg-customGray flex justify-center items-center">
         <p className="text-white text-sm">
-          Municipal Engineer Association {d.getFullYear()}. Powered By <span className="text-blue-400">VPPCOE Consultancy</span>.
+          Municipal Engineer Association {d.getFullYear()}. Powered By <span className="text-blue-500">VPPCOE Consultancy</span>.
         </p>
       </section>
     </footer>

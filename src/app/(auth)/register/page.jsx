@@ -42,6 +42,7 @@ export default function RegisterForm() {
       ...form,
       [name]: value
     });
+    console.log( form)
   };
 
   const handleSubmit = (e) => {
