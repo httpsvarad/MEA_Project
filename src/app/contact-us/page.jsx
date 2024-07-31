@@ -23,26 +23,26 @@ export default function Page() {
           "Content-Type": "application/json",
         },
       });
-      // emailjs
-      //   .sendForm(
-      //     "service_d5hpehs",
-      //     "template_oi2xykk",
-      //     form.current,
-      //     "z8Dw4X9gamLOG7blh"
-      //   )
-      //   .then(
-      //     () => {
-      //       setName("");
-      //       setEmail("");
-      //       setNumber("");
-      //       setAddress("");
-      //       setMessage("");
-      //       alert("SUCCESSFUL SUBMITTED");
-      //     },
-      //     (error) => {
-      //       setError("email sending failed. Please try again.");
-      //     }
-        // );
+          emailjs
+        .sendForm(
+          "service_d5hpehs",
+          "template_oi2xykk",
+          form.current,
+          "z8Dw4X9gamLOG7blh"
+        )
+        .then(
+          () => {
+            setName("");
+            setEmail("");
+            setNumber("");
+            setAddress("");
+            setMessage("");
+            alert("SUCCESSFUL SUBMITTED");
+          },
+          (error) => {
+            setError("email sending failed. Please try again.");
+          }
+        );
     } catch (error) {
       setError("Failed to submit the form. Please try again.");
     }

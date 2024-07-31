@@ -7,7 +7,7 @@ export async function POST(req) {
         // const body = {}
         // data.forEach((value, key) => {
         //     body[key] = value
-        // })
+        // }) 
 
         console.log(data)
         const { fullName, email, contactNumber, address, message} = data
@@ -21,5 +21,6 @@ export async function POST(req) {
         return NextResponse.json({result})
     } catch (e) {
         console.log(e)
+        return NextResponse.json({error: e},{status: 404});
     }
 }
