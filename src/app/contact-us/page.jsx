@@ -23,9 +23,7 @@ export default function Page() {
           "Content-Type": "application/json",
         },
       });
-      if (!res.ok) {
-        throw new Error("HTTP error!");
-      }
+      console.log(res)
       emailjs
         .sendForm(
           "service_d5hpehs",
