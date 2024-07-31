@@ -208,11 +208,13 @@ export default function Header() {
 
                     </div>
                     <div className="mt-10 h-[10vh] w-full flex items-center flex-col">
-                        <h2 className="text-[1rem] xl:text-[1.3rem]">67 years of tradition of faith!! An organization that protects life!</h2>
+                        <h2 className="text-[1rem] xl:text-[1.3rem]">36 years of tradition of faith!! An organization that protects life!</h2>
                     </div>
                     <div className=" w-[100%] flex justify-center  ">
                         <div className=" w-[80%]   h-[inherte]  md:w-full xl:w-full flex justify-center gap-10 items-center xl:justify-around md:flex-col xl:flex-row">
                             <div className="flex text-[0.8rem] xl:text-[1rem] gap-2 flex-row justify-center flex-wrap xl:flex-nowrap xl:flex-col hidden2   list-disc opacity-[60%]" >
+                                <li className="font-bold text-[1.2rem]">Sharad Rao</li>
+
                                 <li>Adv. Mahabal Shetty - President /General Secretary</li>
                                 <li>Engr. Vijay Pachpande - Vice Present</li>
 
@@ -235,7 +237,6 @@ export default function Header() {
                                 Engr. Vishal Kokate - Secretary</li>
 
                                 <li>Engr. Yashpal Hungergekar - Secretary</li>
-                                <li>Engr. Yashpal Hungergekar - Secretary</li>
 
                                 <li>Engr. Rajendra Joshi - Vice resident</li>
 
@@ -244,19 +245,14 @@ export default function Header() {
 
 
                             </div>
-                            <div className="flex text-[0.8rem] xl:text-[1rem] gap-2 flex-row justify-center flex-wrap xl:flex-nowrap xl:flex-col hidden3  list-disc opacity-[60%]" >
+                            <div className="flex text-[0.8rem] xl:text-[1rem] gap-2 flex-row  xl:flex-nowrap xl:flex-col hidden3  list-disc opacity-[60%] " >
                                 <li>Engr. Rajendra Joshi - Vice resident</li>
                                 <li>Engr. Vishal Kokate - Secretary</li>
-
-                                <li>Engr. Vishal Kokate - Secretary</li>
-
                                 <li>Engr. Vishal Kokate - Secretary</li>
                                 <li>Engr. Navnath Ghadge- Executive Chairman</li>
 
                                 <li>
                                 Engr. Vishal Kokate - Secretary</li>
-
-                                <li>Engr. Yashpal Hungergekar - Secretary</li>
                                 <li>Engr. Yashpal Hungergekar - Secretary</li>
 
                                 <li>Engr. Rajendra Joshi - Vice resident</li>
@@ -265,17 +261,7 @@ export default function Header() {
                                 Engr. Rajendra Joshi - Vice resident</li>
 
                                 <li>Engr. Navnath Ghadge- Executive Chairman</li>
-
-                                <li>
-                                Engr. Vishal Kokate - Secretary</li>
-
-                                <li>Engr. Yashpal Hungergekar - Secretary</li>
-                                <li>Engr. Yashpal Hungergekar - Secretary</li>
-
-                                <li>Engr. Rajendra Joshi - Vice resident</li>
-
-                                <li>
-                                Engr. Rajendra Joshi - Vice resident</li>
+                    
 
                             </div>
                         </div>

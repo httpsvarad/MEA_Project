@@ -3,14 +3,14 @@ import executeQuery from "../../lib/db";
 
 export async function POST(req) {
     try {
-        const data = await req.formData()
-        const body = {}
-        data.forEach((value, key) => {
-            body[key] = value
-        })
+        const data = await req.json()
+        // const body = {}
+        // data.forEach((value, key) => {
+        //     body[key] = value
+        // })
 
-        console.log(body)
-        const { fullName, email, contactNumber, address, message} = body
+        console.log(data)
+        const { fullName, email, contactNumber, address, message} = data
 
         const result = await executeQuery({
             query: "INSERT INTO replies (fullName, email, contactNumber, address, message) values(?,?,?,?,?)",

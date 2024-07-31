@@ -4,11 +4,11 @@ import { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Page() {
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Number, setNumber] = useState("");
-  const [Address, setAddress] = useState("");
-  const [Message, setMessage] = useState("");
+  const [fullName, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contactNumber, setNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
   const form = useRef();
@@ -16,36 +16,33 @@ export default function Page() {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/apis/contact", {
         method: "POST",
-        body: JSON.stringify({ Name, Email, Number, Address, Message }),
+        body: JSON.stringify({ fullName, email, contactNumber, address, message }),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      if (!res.ok) {
-        throw new Error("HTTP error!");
-      }
-      emailjs
-        .sendForm(
-          "service_d5hpehs",
-          "template_oi2xykk",
-          form.current,
-          "z8Dw4X9gamLOG7blh"
-        )
-        .then(
-          () => {
-            setName("");
-            setEmail("");
-            setNumber("");
-            setAddress("");
-            setMessage("");
-            alert("SUCCESSFUL SUBMITTED");
-          },
-          (error) => {
-            setError("Email sending failed. Please try again.");
-          }
-        );
+      // emailjs
+      //   .sendForm(
+      //     "service_d5hpehs",
+      //     "template_oi2xykk",
+      //     form.current,
+      //     "z8Dw4X9gamLOG7blh"
+      //   )
+      //   .then(
+      //     () => {
+      //       setName("");
+      //       setEmail("");
+      //       setNumber("");
+      //       setAddress("");
+      //       setMessage("");
+      //       alert("SUCCESSFUL SUBMITTED");
+      //     },
+      //     (error) => {
+      //       setError("email sending failed. Please try again.");
+      //     }
+        // );
     } catch (error) {
       setError("Failed to submit the form. Please try again.");
     }
@@ -112,51 +109,51 @@ export default function Page() {
               >
                 <input
                   type="text"
-                  name="Name"
-                  value={Name}
+                  name="fullName"
+                  value={fullName}
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  placeholder="Your Name"
+                  placeholder="Your fullName"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <input
                   type="email"
-                  name="Email"
-                  value={Email}
+                  name="email"
+                  value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                  placeholder="Your Email"
+                  placeholder="Your email"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <input
                   type="tel"
-                  name="Number"
-                  value={Number}
+                  name="contactNumber"
+                  value={contactNumber}
                   onChange={(e) => {
                     setNumber(e.target.value);
                   }}
-                  placeholder="Your Number"
+                  placeholder="Your contactNumber"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <input
                   type="text"
-                  name="Address"
-                  value={Address}
+                  name="address"
+                  value={address}
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
-                  placeholder="Your Address"
+                  placeholder="Your address"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
                 <textarea
-                  name="Message"
-                  value={Message}
+                  name="message"
+                  value={message}
                   onChange={(e) => {
                     setMessage(e.target.value);
                   }}
-                  placeholder="Message"
+                  placeholder="message"
                   className="px-4 py-2 focus:outline-none border-b border-black h-32 resize-none"
                 />
                 <button

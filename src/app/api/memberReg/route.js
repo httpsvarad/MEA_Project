@@ -4,14 +4,14 @@ import bcrypt from 'bcrypt';
 
 export async function POST(req) {
     try {
-        const data = await req.formData()
-        const body = {}
-        data.forEach((value, key) => {
-            body[key] = value
-        })
+        const data = await req.json()
+        // const body = {}
+        // data.forEach((value, key) => {
+        //     body[key] = value
+        // })
 
-        console.log(body)
-        const { fullName, email, contactNumber, designation, password} = body
+        console.log(data)
+        const { fullName, email, contactNumber, designation, password} = data
 
         const hashedPassword = await bcrypt.hash(password, 10)
         console.log(hashedPassword)

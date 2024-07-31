@@ -4,15 +4,15 @@ const bcrypt = require('bcrypt');
 
 export async function POST(req) {
     try {
-        const data = await req.formData()
-        const body = {}
-        data.forEach((value, key) => {
-            body[key] = value
-        })
+        const data = await req.json()
+        // const body = {}
+        // data.forEach((value, key) => {
+        //     body[key] = value
+        // })
 
-        console.log(body)
+        console.log(data)
 
-        const { email, password} = body
+        const { email, password} = data
         
         const doesEmailExist = await executeQuery({
             query: `SELECT * FROM memberReg WHERE email = '${email}'`
