@@ -77,13 +77,13 @@ export default function Header() {
                             </div>
                             <button className=" py-4 px-4 rounded-md mt-5 bg-[#c72626]  text-white">Learn More</button>
                         </div>
-                        <div className="w-[100%]  xl:w-[30%] md:h-[50%] xl:h-[90%] hidden3 ">
+                        <div className="w-[100%]  xl:w-[30%] md:h-[80] xl:h-[50vh] hidden3 ">
                            <Image src={heromage} 
                            className="w-[100%] h-[100%] xl:h-[100%] object-fit  "
                         
                            />
                         </div>
-                        <div className="w-[100%]  xl:w-[30%] md:h-[50%] xl:h-[90%] hidden3 ">
+                        <div className="w-[100%]  xl:w-[30%] md:h-[80%] xl:h-[50vh] hidden3 ">
                            <Image src={heromage} 
                            className="w-[100%] h-[100%] xl:h-[100%] object-fit  "
                         
