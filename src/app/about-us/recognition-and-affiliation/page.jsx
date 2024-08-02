@@ -8,14 +8,14 @@ const page = () => {
         <p className="text-lg p-3"> Home / About Us / Recognition & AFFILIATION</p>
       </section>
       <section className='px-10 py-10'>
-        <div className='flex gap-7 py-5'>
+        <div className='flex flex-col md:flex-row gap-7 py-5'>
           <div className='w-[50%]'>
             <p className=' text-gray-500 dark:text-gray-400 first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:me-3 first-letter:float-start text-justify'> The Mumbai Engineers Union (MEU) is an extremely important engineering association in Maharashtra, which effectively supports engineers in resolving their issues. Since its establishment, the union has consistently advocated for various issues and provided guidance to engineers to achieve excellence.
 
               <br />
               <br />
 
-              <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Key Initaitives:</h2>
+              <p className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Key Initaitives:</p>
               <ul className="space-y-1 text-gray-500 list-inside dark:text-gray-400">
                 <li className="flex items-center pb-2">
                   <svg className="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

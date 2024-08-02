@@ -48,7 +48,7 @@ export default function Header() {
                 <div className=" w-full h-[100vh]  flex justify-center ">
                     <Image
                     src={BlackANDWHITE}
-                    className=" w-[100%] h-[100%]  brightness-50 object-cover"
+                    className=" w-[100%] h-[100%] object-right brightness-50 object-cover"
                     />
                 </div>
                 <div className=" hidden1 w-[100%]   bg-white  flex justify-center">
