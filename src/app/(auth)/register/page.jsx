@@ -145,13 +145,6 @@ export default function RegisterForm() {
               Register
             </button>
           </form>
-          <div className='m-2'>
-            <p>Already have an account? <span className='text-blue-700'>
-              <Link href={'/login'}>
-                Login
-              </Link>
-            </span></p>
-          </div>
         </section>
       </main>
     </>

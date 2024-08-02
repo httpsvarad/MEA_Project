@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import OnScrollAnimation from '../../../Components/OnScrollAnimmation';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-
+import Link from 'next/link';
 export default function RegisterForm() {
   useEffect(()=> {
     if (typeof document !== 'undefined') {
@@ -52,7 +52,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="flex justify-center items-center my-40 hidden1">
+    <div className="flex justify-center items-center my-40 hidden1 flex-col" >
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Member Login</h2>
         <div className="mb-4">
@@ -82,6 +82,13 @@ export default function RegisterForm() {
           Login
         </button>
       </form>
+      <div className='m-2'>
+            <p>Don't have an account? <span className='text-blue-700'>
+              <Link href={'/register'}>
+                Register
+              </Link>
+            </span></p>
+          </div>
     </div>
   );
 }

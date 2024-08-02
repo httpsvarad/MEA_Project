@@ -189,7 +189,7 @@ export default function Header() {
               </Link>
             ) : (
               // User is not authenticated, show Member Registration link
-              <Link href="/register">
+              <Link href="/login">
                 <h3 className="cursor-pointer hidden xl:flex">
                   Member Registration
                 </h3>
@@ -311,7 +311,7 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            <Link href={"/contact-us"}>
+            <Link href={"/contact-us"}> 
               <h4>Contact us</h4>
             </Link>
             
