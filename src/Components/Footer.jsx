@@ -21,7 +21,7 @@ export default function Footer() {
                 <p className="flex"><span className="p-1 "><IoCall /></span> 23098063 / 23086553</p>
                 </div>
             </section>
-            <section className=" p-10 h-full m-10 flex flex-col justify-center">
+            <section className=" p-5 h-full m-10 flex flex-col justify-center">
                 <h1>Quick Links</h1>
                 <br />  
                 <ul className="text-sm text-lightText flex flex-col">
@@ -31,7 +31,7 @@ export default function Footer() {
                     <Link href={'/members-registration'} className="p-2">Members Registration</Link>
                 </ul>
             </section>
-            <section className=" p-10 h-full m-10 flex flex-col justify-center">
+            <section className=" p-5 h-full m-10 flex flex-col justify-center">
                 <h1>Useful Links</h1>
                 <br />
                 <ul className="text-sm text-lightText flex flex-col">
