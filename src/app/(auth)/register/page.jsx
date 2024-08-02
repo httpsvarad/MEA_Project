@@ -71,7 +71,7 @@ export default function RegisterForm() {
         <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
           <h1 className="text-5xl p-3">Register</h1>
         </section>
-        <section className="flex justify-center items-center min-h-screen hidden1 flex-col ">
+        <section className="flex justify-center mt-7 mb-7 items-center min-h-screen hidden1 flex-col">
           <form onSubmit={handleSubmit} ref={form} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
             <h2 className="text-2xl font-bold mb-6 text-center">Member Register</h2>
             <div className="mb-4">

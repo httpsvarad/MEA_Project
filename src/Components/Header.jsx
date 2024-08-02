@@ -83,7 +83,7 @@ export default function Header() {
           <div className="flex  ">
             <Image
               src={LOGO}
-              className="EMALOGOP  sm:w-[10rem] xl:w-full xl:pl-10"
+              className="EMALOGOP ml-2"
               width={100}
               height={100}
             />
@@ -106,7 +106,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="objectives" className="dropdown-link">
+                  <Link href="#" className="dropdown-link">
                     Objectives
                   </Link>
                 </li>
@@ -195,7 +195,7 @@ export default function Header() {
                 </h3>
               </Link>
             )}
-            <div>
+            <div className="flex items-center justify-center">
               <GoogleTranslate />
             </div>
           </div>

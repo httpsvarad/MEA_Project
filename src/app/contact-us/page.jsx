@@ -2,6 +2,7 @@
 import OnScrollAnimation from "../../Components/OnScrollAnimmation";
 import { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha"
 
 export default function Page() {
   const [fullName, setName] = useState("");
@@ -10,6 +11,7 @@ export default function Page() {
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [capVal, setCapVal] = useState(null);
 
   const form = useRef();
   const sendEmail = async (e) => {
@@ -37,10 +39,10 @@ export default function Page() {
             setNumber("");
             setAddress("");
             setMessage("");
-            alert("SUCCESSFUL SUBMITTED");
+            alert("FORM SUBMITTED !");
           },
           (error) => {
-            setError("email sending failed. Please try again.");
+            setError("Email sending failed. Please try again.");
           }
         );
     } catch (error) {
@@ -107,7 +109,7 @@ export default function Page() {
                 ref={form}
                 className="flex flex-col space-y-4"
               >
-                <input
+                <input required
                   type="text"
                   name="fullName"
                   value={fullName}
@@ -117,7 +119,7 @@ export default function Page() {
                   placeholder="Your Full Name"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
-                <input
+                <input required
                   type="email"
                   name="email"
                   value={email}
@@ -127,7 +129,7 @@ export default function Page() {
                   placeholder="Your Email"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
-                <input
+                <input required
                   type="tel"
                   name="contactNumber"
                   value={contactNumber}
@@ -137,7 +139,7 @@ export default function Page() {
                   placeholder="Your Contact Number"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
-                <input
+                <input required
                   type="text"
                   name="address"
                   value={address}
@@ -147,7 +149,7 @@ export default function Page() {
                   placeholder="Your Address"
                   className="px-4 py-2 focus:outline-none border-b border-black"
                 />
-                <textarea
+                <textarea required
                   name="message"
                   value={message}
                   onChange={(e) => {
@@ -156,7 +158,12 @@ export default function Page() {
                   placeholder="Your Message"
                   className="px-4 py-2 focus:outline-none border-b border-black h-32 resize-none"
                 />
-                <button
+                <div>
+                  <ReCAPTCHA 
+                  sitekey="6Ldhhx0qAAAAAEvzDiZGXLvvpLj3e6AmJPh6TI1B"
+                  onChange={val => setCapVal(val)} />
+                </div>
+                <button disabled={!capVal}
                   type="submit"
                   className="w-24 h-12 p-2 bg-red-500 text-white rounded-full hover:bg-[#c72626] focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
