@@ -3,6 +3,8 @@ import OnScrollAnimation from "../../Components/OnScrollAnimmation";
 import { useEffect } from "react";
 import IMGs from "../../Assets/IMGs/man.png"
 import Image from "next/image";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 
 
 export default function page() {
@@ -29,6 +31,7 @@ export default function page() {
 
   return (
     <>
+    <Header />
       <main>
         <section className="h-44  bg-[#232323] flex justify-center items-center flex-col text-white">
           <h1 className="text-5xl p-3">Events</h1>
@@ -73,6 +76,7 @@ export default function page() {
                 </section>
         
       </main>
+      <Footer />
     </>
   );
 }

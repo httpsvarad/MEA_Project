@@ -1,7 +1,11 @@
 import React from 'react'
+import Header from '../../../Components/Header';
+import Footer from '../../../Components/Footer';
 
 const page = () => {
   return (
+    <>
+    <Header />
     <main>
       <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
         <h1 className="text-5xl p-3">Background of MEA</h1>
@@ -38,6 +42,8 @@ const page = () => {
         </p>
       </section>
     </main>
+    <Footer />
+    </>
   );
 
 }

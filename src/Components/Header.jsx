@@ -314,7 +314,7 @@ export default function Header() {
             <Link href={"/contact-us"}> 
               <h4>Contact us</h4>
             </Link>
-            
+            <div>
             {session ? (
               // User is authenticated, show Profile link
               <Link href="/profile">
@@ -328,11 +328,7 @@ export default function Header() {
                 </h3>
               </Link>
             )}
-            {/* <div>
-                        <div onClick={DarkTheme} className="ThemeIcons"> 
-                        <div id="themeicons" className="gg-moon"></div>
-                        </div>
-                    </div> */}
+              </div>          
           </div>
         </div>
       </div>

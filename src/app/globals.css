@@ -266,6 +266,18 @@ transform:translateY(0px);
   display: none;
 }
 
+.Admin {
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(143, 143, 143, 0.1), rgba(139, 139, 139, 0));
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border: 0.5px solid rgba(129, 129, 129, 0.18); 
+  box-shadow: var(--showdow-box);
+  width: 75%;
+  height: 70%;
+}
+
+
 @media (min-width: 1024px) {
   .Sub-SideNav{
     z-index:20;
@@ -401,6 +413,8 @@ transform:translateY(0px);
     padding-left: 2rem;
     justify-content: start;
     gap: 10px;
+    font-size: 1rem;
+    margin-top: 2rem;
     color: var(--base-text-clr);
     
    

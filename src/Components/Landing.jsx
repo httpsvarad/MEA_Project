@@ -15,14 +15,15 @@ import { FaPerson } from "react-icons/fa6";
 import { FaLandmarkDome } from "react-icons/fa6";
 import OnScrollAnimation from "../Components/OnScrollAnimmation";
 import Link from "next/link";
-
+import Footer from '../Components/Footer'
+import Header from '../Components/Header'
 const nunito = Nunito
     ({
         subsets: ['latin'],
         weight: ['700']
 
     })
-export default function Header() {
+export default function Landing() {
     //On Scroll Animation Function
     useEffect(() => {
         if (typeof document !== 'undefined') {
@@ -44,6 +45,8 @@ export default function Header() {
     }, []);
 
     return (
+        <div>
+            <Header />
         <div className=" w-[100%] bg-white flex gap-20 flex-col">
             <div className=" w-full h-[100vh]  flex justify-center ">
                 <Image
@@ -338,6 +341,8 @@ export default function Header() {
                 </div>
 
             </div>
+        </div>
+        <Footer />
         </div>
     );
 
