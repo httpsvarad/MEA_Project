@@ -220,13 +220,59 @@ export default function Header() {
               <h4>Home</h4>
             </Link>
             <div className="relative group items-center ">
-              <h3>
-                About us{" "}
+            <h3 className="flex cursor-pointer hover-text-red items-center">
+                About Us{" "}
                 <span className="p-1">
                   <IoIosArrowDown />
                 </span>
               </h3>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu2">
+                <li>
+                  <Link href="background-of-mea" className="dropdown-link">
+                    Background of MEA
+                  </Link>
+                </li>
+                <li>
+                  <Link href="objectives" className="dropdown-link">
+                    Objectives
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="recognition-and-affiliation"
+                    className="dropdown-link"
+                  >
+                    Recognition and Affiliation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="distinguished-honorary-fellows"
+                    className="dropdown-link"
+                  >
+                    Distinguished Honorary Fellows
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="dropdown-link">
+                    Contributing in Science and Technology
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="dropdown-link">
+                    Participation and Appreciation
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="relative group items-center ">
+            <h3 className="flex cursor-pointer hover-text-red items-center">
+                Members{" "}
+                <span className="p-1">
+                  <IoIosArrowDown />
+                </span>
+              </h3>
+              <ul className="dropdown-menu2">
                 <li>
                   <Link href="background-of-mea" className="dropdown-link">
                     Background of MEA
@@ -268,14 +314,21 @@ export default function Header() {
             <Link href={"/contact-us"}> 
               <h4>Contact us</h4>
             </Link>
-            <Link href={"/login"}>
-              <h4>member registration</h4>
-            </Link>
-            {/* <div>
-                        <div onClick={DarkTheme} className="ThemeIcons"> 
-                        <div id="themeicons" className="gg-moon"></div>
-                        </div>
-                    </div> */}
+            <div>
+            {session ? (
+              // User is authenticated, show Profile link
+              <Link href="/profile">
+                <h3 className="cursor-pointer hidden xl:flex">Profile</h3>
+              </Link>
+            ) : (
+              // User is not authenticated, show Member Registration link
+              <Link href="/register">
+                <h3 className="cursor-pointer hidden xl:flex">
+                  Member Registration
+                </h3>
+              </Link>
+            )}
+              </div>          
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ export async function POST(req) {
     const query = "INSERT INTO memberReg (fullName, email, contactNumber, designation, password) values(?,?,?,?,?)";
     const values = [fullName, email, contactNumber, designation, hashedPassword];
 
-    const result = await executeQuery({ query, values });
+    const result = await executeQuery({ query, values }); 
 
     if(result?.affectedRows == 1){
       return NextResponse.json('Successfully registered!', {status: '201'});

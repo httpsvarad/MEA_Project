@@ -4,6 +4,10 @@ import OnScrollAnimation from '../../../Components/OnScrollAnimmation';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Header from '../../../Components/Header';
+import Footer from '../../../Components/Footer';
+import Head from 'next/head';
+
 export default function RegisterForm() {
   useEffect(()=> {
     if (typeof document !== 'undefined') {
@@ -52,6 +56,8 @@ export default function RegisterForm() {
   };
 
   return (
+    <div>
+      <Header />
     <div className="flex justify-center items-center my-40 hidden1 flex-col" >
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Member Login</h2>
@@ -89,6 +95,8 @@ export default function RegisterForm() {
               </Link>
             </span></p>
           </div>
+    </div>
+    <Footer />
     </div>
   );
 }

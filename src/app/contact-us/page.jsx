@@ -3,6 +3,8 @@ import OnScrollAnimation from "../../Components/OnScrollAnimmation";
 import { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha"
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 
 export default function Page() {
   const [fullName, setName] = useState("");
@@ -67,6 +69,7 @@ export default function Page() {
 
   return (
     <>
+    <Header />
       <main>
         <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
           <h1 className="text-5xl p-3">Contact Us</h1>
@@ -187,7 +190,7 @@ export default function Page() {
           </section>
         </section>
       </main>
-
+                  <Footer />
     </>
   );
 }
