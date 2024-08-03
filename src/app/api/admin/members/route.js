@@ -21,14 +21,15 @@ export async function POST(req) {
             return NextResponse.json('unauthorized', {status: 401})
         }
 
-        const data = await req.json()
-        const { id } = data
-        // console.log(id)
+        const url = new URL(req.url);
+        const id = url.searchParams.get('id'); 
+        console.log(id)
         const result = await executeQuery({
             query: `SELECT * FROM memberReg WHERE id = ${id}` 
         })
 
-        const {fullName, email, contactNumber, designation} = result[0]
+        const {fullName, email, contactNumber, designation, password ,isApproved, Role} = result[0]
+        console.log(fullName, email, contactNumber, designation, password ,isApproved, Role)
         console.log("Adding " + fullName+ " to members")
 
         //marking member as approved
@@ -37,8 +38,8 @@ export async function POST(req) {
 
             //adding to the members table
             const isAdded = await executeQuery({
-                query: `INSERT INTO members (fullName, email, contactNumber, designation) VALUES(?,?,?,?)`,
-                values: [fullName, email, contactNumber, designation]
+                query: `INSERT INTO members (fullName, email, contactNumber, designation, password, Role) VALUES(?,?,?,?,?,?)`,
+                values: [fullName, email, contactNumber, designation, password , Role]
             })
             console.log(isAdded)
 
@@ -63,31 +64,34 @@ async function changeStatus(id){
 
 export async function DELETE(req) {
     try {
-        const apiKey = await req.headers.get('authorization') 
+        // Extract the API key from the headers
+        const apiKey = req.headers.get('authorization');
 
         if (!isApiValid(apiKey)) {
-            return NextResponse.json('unauthorized', {status: 401})
+            return NextResponse.json('Unauthorized', { status: 401 });
         }
 
-        const data = await req.json()
-        const { id } = data
+        // Extract the ID from the URL parameters
+        const url = new URL(req.url);
+        const id = url.searchParams.get('id'); 
 
-        //deleting the member reg for the Rejected member 
+        if (!id) {
+            return NextResponse.json('ID not provided', { status: 400 });
+        }
+
+        // Perform the DELETE operation
         const result = await executeQuery({
-            query: `DELETE FROM memberReg WHERE id=${id}`
-        })
+            query: `DELETE FROM memberReg WHERE id = ?`,
+            values: [id]
+        });
 
-        console.log(result)
-        if (result.affectedRows == 1) {
-            return NextResponse.json('Member Rejected, Deleted from members requests', {status: 200})
+        if (result.affectedRows === 1) {
+            return NextResponse.json('Member rejected and deleted from members requests', { status: 200 });
         } else {
-            console.log(result)
-            return NextResponse.json('could not Reject the member, an error occured', {status: 500})
+            return NextResponse.json('Could not reject the member, an error occurred', { status: 500 });
         }
-
-
     } catch (e) {
-        console.log(e)
-        return NextResponse.json({error: e}, {status:500})
+        console.error(e);
+        return NextResponse.json({ error: e.message }, { status: 500 });
     }
 }

@@ -13,7 +13,7 @@ export async function GET(req) {
     const result = await executeQuery({
       query: "SELECT * FROM replies ORDER BY replyId DESC;",
     });
-    console.log("Authorized");
+    // console.log("Authorized");
     return NextResponse.json(result, { status: 200 });
   } catch (err) {
     console.log(err);

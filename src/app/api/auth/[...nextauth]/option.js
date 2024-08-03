@@ -13,7 +13,7 @@ export const authOptions = {
       },
       authorize: async (credentials) => {
         try {
-          const query = 'SELECT * FROM memberReg WHERE email = ?;';
+          const query = 'SELECT * FROM members WHERE email = ?;';
           const values = [credentials.email];
           const rows = await executeQuery({ query, values });
 

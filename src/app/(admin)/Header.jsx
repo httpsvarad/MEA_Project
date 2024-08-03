@@ -1,16 +1,18 @@
+import Link from "next/link";
+
 export default function Headers() {
     return (
     <>
-      <div className="w-[100%] h-[8vh] bg-white shadow-md flex items-center justify-between px-5">
-        <div><h1 className="text-[1.5rem]">Admin Panel</h1></div> 
+      {/* <div className="w-[100%] h-[8vh] bg-white shadow-md flex items-center justify-between px-5"> */}
         <div>
-            <ul className="flex items-center gap-3">
-                <li className=" cursor-pointer">Home</li>
-                <li className=" cursor-pointer">Members</li>
-                <li className=" cursor-pointer">Gallery</li>
-                <li className=" cursor-pointer">Events</li>
+            <ul className="flex items-center gap-3 flex-col">
+                <Link href="/Admin" className=" cursor-pointer">Home</Link>
+                <Link href="/Admin/Members" className=" cursor-pointer">Members</Link>
+                <Link href="/Admin/member_req" className=" cursor-pointer">Members Request</Link>
+                <Link href={'/Admin/replies'} className=" cursor-pointer">Replies</Link>
+                <Link href={'/Admin/Events'} className=" cursor-pointer">Events</Link>
             </ul>
-        </div>
+        {/* </div> */}
       </div>
     </>
     )

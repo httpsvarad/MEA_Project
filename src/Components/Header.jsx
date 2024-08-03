@@ -126,7 +126,7 @@ export default function Header() {
                     Distinguished Honorary Fellows
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="#" className="dropdown-link">
                     Contributing in Science and Technology
                   </Link>
@@ -135,7 +135,7 @@ export default function Header() {
                   <Link href="#" className="dropdown-link">
                     Participation and Appreciation
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="relative group h-13vh items-center hidden-xl">
@@ -253,7 +253,7 @@ export default function Header() {
                     Distinguished Honorary Fellows
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="#" className="dropdown-link">
                     Contributing in Science and Technology
                   </Link>
@@ -262,7 +262,7 @@ export default function Header() {
                   <Link href="#" className="dropdown-link">
                     Participation and Appreciation
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="relative group items-center ">
