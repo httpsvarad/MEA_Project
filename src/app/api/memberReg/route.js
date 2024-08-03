@@ -14,7 +14,11 @@ export async function POST(req) {
 
     const result = await executeQuery({ query, values });
 
-    return NextResponse.json({ result });
+    if(result?.affectedRows == 1){
+      return NextResponse.json('Successfully registered!', {status: '201'});
+    } else {
+      return NextResponse.json('duplicate email OR Error', {status: '500'});
+    }
   } catch (error) {
     console.error("Error registering user:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });

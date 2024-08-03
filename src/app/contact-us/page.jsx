@@ -18,7 +18,7 @@ export default function Page() {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("/apis/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         body: JSON.stringify({ fullName, email, contactNumber, address, message }),
         headers: {
