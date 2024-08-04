@@ -1,8 +1,11 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import NAV from "../../Navbar";
+import { useSession } from "next-auth/react";
+import Unauthorized from "../../Unauthorized"
 
 export default function Page() {
+  const { data: session } = useSession();
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
@@ -51,6 +54,7 @@ export default function Page() {
 
   return (
     <>
+    {session?.user?.role === 'admin' ? (      
       <div className="flex w-full h-screen flex-row text-xl">
         <NAV />
         <div className='flex flex-col w-full gap-5 h-screen'>
@@ -81,6 +85,9 @@ export default function Page() {
           </div>
         </div>
       </div>
+      ) : (
+        <Unauthorized />
+      )}
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function page() {
   return (
     <div>
       {session?.user?.role === 'admin' ? (
-        <h1>Event admin</h1>
+        <h1>gallery admin</h1>
       ) : (
         <Unauthorized />
       )}

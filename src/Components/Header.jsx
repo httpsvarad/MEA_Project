@@ -195,6 +195,11 @@ export default function Header() {
                 </h3>
               </Link>
             )}
+            {session?.user?.role === "admin" ? (
+              <Link href="/Admin">
+                <h3 className="cursor-pointer hidden xl:flex">Admin</h3>
+              </Link>
+            ) : null}
             <div className="flex items-center justify-center">
               <GoogleTranslate />
             </div>
@@ -220,7 +225,7 @@ export default function Header() {
               <h4>Home</h4>
             </Link>
             <div className="relative group items-center ">
-            <h3 className="flex cursor-pointer hover-text-red items-center">
+              <h3 className="flex cursor-pointer hover-text-red items-center">
                 About Us{" "}
                 <span className="p-1">
                   <IoIosArrowDown />
@@ -266,7 +271,7 @@ export default function Header() {
               </ul>
             </div>
             <div className="relative group items-center ">
-            <h3 className="flex cursor-pointer hover-text-red items-center">
+              <h3 className="flex cursor-pointer hover-text-red items-center">
                 Members{" "}
                 <span className="p-1">
                   <IoIosArrowDown />
@@ -311,24 +316,31 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            <Link href={"/contact-us"}> 
+            <Link href={"/contact-us"}>
               <h4>Contact us</h4>
             </Link>
             <div>
-            {session ? (
-              // User is authenticated, show Profile link
-              <Link href="/profile">
-                <h3 className="cursor-pointer hidden xl:flex">Profile</h3>
-              </Link>
-            ) : (
-              // User is not authenticated, show Member Registration link
-              <Link href="/register">
-                <h3 className="cursor-pointer hidden xl:flex">
-                  Member Registration
-                </h3>
-              </Link>
-            )}
-              </div>          
+              {session ? (
+                // User is authenticated, show Profile link
+                <Link href="/profile">
+                  <h3 className="cursor-pointer hidden xl:flex">Profile</h3>
+                </Link>
+              ) : (
+                // User is not authenticated, show Member Registration link
+                <Link href="/register">
+                  <h3 className="cursor-pointer hidden xl:flex">
+                    Member Registration
+                  </h3>
+                </Link>
+              )}
+            </div>
+            <div>
+              {session?.user?.Role === "admin" ? (
+                <Link href="/Admin">
+                  <h3 className="cursor-pointer hidden xl:flex">Admin</h3>
+                </Link>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
