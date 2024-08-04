@@ -36,9 +36,31 @@ export async function GET(req) {
       fullName VARCHAR(45),
       email VARCHAR(45) UNIQUE,
       contactNumber VARCHAR(20),
-      designation VARCHAR(200)
+      designation VARCHAR(200),
+      password VARCHAR(100),
+      Role VARCHAR(45)
     );
   `;
+
+    //create Events table
+    const createEventsTable = `
+    CREATE TABLE IF NOT EXISTS events (
+      eventId INT PRIMARY KEY AUTO_INCREMENT,
+      title VARCHAR(255),
+      date date,
+      image VARCHAR(100),
+      description VARCHAR(255)
+    );
+  `;
+
+      //create Gallery table
+      const createGalleryTable = `
+      CREATE TABLE IF NOT EXISTS gallery (
+        imageId INT PRIMARY KEY AUTO_INCREMENT,
+        title VARCHAR(100),
+        image VARCHAR(100)
+      );
+    `;
 
     // Execute the query to create the memberReg table
     const resultMemberReg = await executeQuery({ query: createMemberRegTable });
@@ -50,8 +72,14 @@ export async function GET(req) {
 
     const resultMembers = await executeQuery({ query: createMembersTable });
     console.log("members table created or already exists.");
+
+    const resultEvents = await executeQuery({ query: createEventsTable });
+    console.log("events table created or already exists.");
+
+    const resultGallery = await executeQuery({ query: createGalleryTable });
+    console.log("gallery table created or already exists.");
     // Return the result as a JSON response
-    return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers } });
+    return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers, resultEvents, resultGallery } });
 
   } catch (err) {
     console.error("Error executing query:", err);
