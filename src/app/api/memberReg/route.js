@@ -9,8 +9,8 @@ export async function POST(req) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const query = "INSERT INTO memberReg (fullName, email, contactNumber, designation, password, Role) values(?,?,?,?,?,?)";
-    const values = [fullName, email, contactNumber, designation, hashedPassword, "admin" ];
+    const query = "INSERT INTO memberReg (fullName, email, contactNumber, designation, password) values(?,?,?,?,?)";
+    const values = [fullName, email, contactNumber, designation, hashedPassword ];
 
     const result = await executeQuery({ query, values }); 
 
