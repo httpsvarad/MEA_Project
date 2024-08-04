@@ -11,6 +11,7 @@ export default function Headers() {
                 <Link href="/Admin/member_req" className=" cursor-pointer">Members Request</Link>
                 <Link href={'/Admin/replies'} className=" cursor-pointer">Replies</Link>
                 <Link href={'/Admin/Events'} className=" cursor-pointer">Events</Link>
+                <Link href={'/Admin/gallery'} className=" cursor-pointer">Gallery</Link>
             </ul>
         {/* </div> */}
       </div>
