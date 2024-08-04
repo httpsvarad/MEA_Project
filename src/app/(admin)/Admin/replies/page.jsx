@@ -37,11 +37,11 @@ export default function Page() {
     {session?.user?.role === 'admin' ? (  
       <div className="flex w-full h-screen flex-row text-3xl">
         <NAV />
-        <div className='flex flex-col w-full gap-5 h-screen'>
+        <div className='flex flex-col w-full gap-5 h-screen px-5 py-5'>
           <h1>Replies</h1>
           <div>
             {replies.map((reply) => (
-              <div key={reply.replyId} className="p-4 border-b border-gray-300">
+              <div key={reply.replyId} className="p-4 border-[2px] rounded-lg text-[1rem] border-gray-300">
                 <p><strong>Name:</strong> {reply.fullName}</p>
                 <p><strong>Email:</strong> {reply.email}</p>
                 <p><strong>Contact Number:</strong> {reply.contactNumber}</p>

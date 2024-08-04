@@ -109,13 +109,14 @@ export default function GalleryPage() {
   return (
     <div className="flex w-full h-screen flex-row text-xl">
       <NAV />
-      <div className="flex flex-col w-full gap-5 h-screen p-5">
+      <div className="flex flex-col w-full gap-5 items-center  h-screen p-5">
         <h1>Gallery</h1>
-        <form onSubmit={handleUpload}>
-          <div>
-            <label>
+        <form onSubmit={handleUpload} className="w-[70%]  text-white h-[55vh] flex justify-center flex-col gap-5 rounded-xl px-10 bg-blue-500">
+          <div className="">
+            <label className="">
               Title:
               <input
+                className="w-[80%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -127,6 +128,7 @@ export default function GalleryPage() {
             <label>
               Date:
               <input
+                   className="w-[80%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
@@ -135,9 +137,10 @@ export default function GalleryPage() {
             </label>
           </div>
           <div>
-            <label>
+            <label className="flex items-center">
               Description:
               <textarea
+                className="w-[72%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -147,10 +150,14 @@ export default function GalleryPage() {
           <div>
             <label>
               Image:
-              <input type="file" onChange={handleFileChange} accept="image/*" required />
+              <input               
+                className="w-[80%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[white]"
+ type="file" onChange={handleFileChange} accept="image/*" required />
             </label>
           </div>
-          <button type="submit">Upload</button>
+          <div className="w-full flex justify-center">
+          <button type="submit" className="w-[8rem] h-[5vh]   text-white bg-green-500 rounded-lg">Upload</button>
+          </div>
         </form>
         {statusMessage && <p>{statusMessage}</p>}
 

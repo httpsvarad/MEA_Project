@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import NAV from "../../Navbar";
 import { useSession } from "next-auth/react";
-import Unauthorized from "../../Unauthorized"
+import Unauthorized from "../../Unauthorized";
 
 export default function Page() {
   const [members, setMembers] = useState([]);
@@ -56,7 +56,6 @@ export default function Page() {
       setMembers((prevMembers) =>
         prevMembers.filter((member) => member.id !== id)
       );
-      handleDecline(id)
     } catch (error) {
       console.error("Error accepting member:", error);
     }
@@ -90,56 +89,56 @@ export default function Page() {
 
   return (
     <>
-    {session?.user?.role === 'admin' ? ( 
-    <div className="flex w-full h-screen flex-row text-xl">
-      <NAV />
-      <div className='flex flex-col w-full gap-5 h-screen'>
-        <h1>Members Requested</h1>
-        {members.length === 0 ? (
-          <p>No members found.</p>
-        ) : (
-          members.map((member) => (
-            <div key={member.id} className="p-4 border-b border-gray-300">
-              <p>
-                <strong>Name:</strong> {member.fullName}
-              </p>
-              <p>
-                <strong>ID:</strong> {member.id}
-              </p>
-              <p>
-                <strong>Email:</strong> {member.email}
-              </p>
-              <p>
-                <strong>Contact Number:</strong> {member.contactNumber}
-              </p>
-              <p>
-                <strong>Designation:</strong> {member.designation}
-              </p>
-              <p>
-                <strong>Role:</strong> {member.Role}
-              </p>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => handleAccept(member.id)}
-                  className="px-4 py-2 bg-green-500 text-white rounded"
-                >
-                  Accept
-                </button>
-                <button
-                  onClick={() => handleDecline(member.id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded"
-                >
-                  Decline
-                </button>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
-    </div>
-    ) : (
-      <Unauthorized />
-    )}
+      {session?.user?.role === 'admin' ? (
+        <div className="flex w-full h-screen flex-row text-xl ">
+          <NAV />
+          <div className='flex flex-col w-full gap-5 h-screen items-center  overflow-y-auto px-5 py-5'>
+            <h1 className="text-[1.7rem] font-bold">Requested Members List</h1>
+            {members.length === 0 ? (
+              <p>No members found.</p>
+            ) : (
+              members.map((member) => (
+                <div key={member.id} className="container gap-2 w-full p-4 border-[2px] rounded-xl flex flex-col justify-center  border-gray-300">
+                  <p>
+                    <strong>Name:</strong> {member.fullName}
+                  </p>
+                  <p>
+                    <strong>ID:</strong> {member.id}
+                  </p>
+                  <p>
+                    <strong>Email:</strong> {member.email}
+                  </p>
+                  <p>
+                    <strong>Contact Number:</strong> {member.contactNumber}
+                  </p>
+                  <p>
+                    <strong>Designation:</strong> {member.designation}
+                  </p>
+                  <p>
+                    <strong>Role:</strong> {member.Role}
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleAccept(member.id)}
+                      className="px-4 py-2 bg-green-500 text-white rounded"
+                    >
+                      Accept
+                    </button>
+                    <button
+                      onClick={() => handleDecline(member.id)}
+                      className="px-4 py-2 bg-red-500 text-white rounded"
+                    >
+                      Decline
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      ) : (
+        <Unauthorized />
+      )}
     </>
   );
 }

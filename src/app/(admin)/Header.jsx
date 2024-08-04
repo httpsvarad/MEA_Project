@@ -4,14 +4,20 @@ export default function Headers() {
     return (
     <>
       {/* <div className="w-[100%] h-[8vh] bg-white shadow-md flex items-center justify-between px-5"> */}
-        <div>
-            <ul className="flex items-center gap-3 flex-col">
-                <Link href="/Admin" className=" cursor-pointer">Home</Link>
-                <Link href="/Admin/Members" className=" cursor-pointer">Members</Link>
-                <Link href="/Admin/member_req" className=" cursor-pointer">Members Request</Link>
-                <Link href={'/Admin/replies'} className=" cursor-pointer">Replies</Link>
-                <Link href={'/Admin/Events'} className=" cursor-pointer">Events</Link>
-                <Link href={'/Admin/gallery'} className=" cursor-pointer">Gallery</Link>
+        <div className="w-full ">
+            <ul className="flex items-center flex-col border-spacing-5 mt-2 ">
+                <Link href="/Admin" className=" cursor-pointer text-white text-[1rem] border-y-[2px] border-white h-[7vh] items-center
+                 hover:bg-blue-500 w-full flex justify-center ">Home</Link>
+                <Link href="/Admin/Members" className=" cursor-pointer text-white text-[1rem]  border-white h-[7vh] items-center
+                 hover:bg-blue-500 w-full flex justify-center">Members</Link>
+                <Link href="/Admin/member_req" className="  cursor-pointer text-white text-[1rem] border-y-[2px] border-white h-[7vh] items-center
+                 hover:bg-blue-500 w-full flex justify-center">Members Request</Link>
+                <Link href={'/Admin/replies'} className="  cursor-pointer text-white text-[1rem] border-b-[2px] border-white h-[7vh] items-center
+                 hover:bg-blue-500 w-full flex justify-center">Replies</Link>
+                <Link href={'/Admin/Events'} className=" cursor-pointer text-white text-[1rem]  border-white h-[7vh] items-center
+                 hover:bg-blue-500 w-full flex justify-center">Events</Link>
+                <Link href={'/Admin/gallery'} className="  cursor-pointer text-white text-[1rem] border-y-[2px] border-white h-[7vh] items-center
+                 hover:bg-blue-500 w-full flex justify-center">Gallery</Link>
             </ul>
         {/* </div> */}
       </div>

@@ -57,11 +57,11 @@ export default function Page() {
     {session?.user?.role === 'admin' ? (      
       <div className="flex w-full h-screen flex-row text-xl">
         <NAV />
-        <div className='flex flex-col w-full gap-5 h-screen'>
-          <h1>Members</h1>
+        <div className='flex flex-col w-full px-5 py-5 gap-5 h-screen'>
+          <h1 className='text-[2rem] font-bold'>Members</h1>
           <div>
             {members.map((member) => (
-              <div key={member.memberId} className="p-4 border-b border-gray-300">
+              <div key={member.memberId} className="p-4 border-[2px] rounded-lg flex gap-5 flex-col border-gray-300 mt-5">
                 <p>
                   <strong>Name:</strong> {member.fullName}
                 </p>
@@ -75,7 +75,7 @@ export default function Page() {
                   <strong>Designation:</strong> {member.designation}
                 </p>
                 <button
-                  className="mt-2 px-4 py-2 bg-red-500 text-white rounded"
+                  className="mt-2 px-4 py-2 bg-red-500 w-[10rem] text-white rounded"
                   onClick={() => deleteMember(member.memberId)}
                 >
                   Delete

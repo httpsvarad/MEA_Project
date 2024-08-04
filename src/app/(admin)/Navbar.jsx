@@ -7,8 +7,8 @@ import Headers from "./Header"
 export default function NAV() {
     return (
     <>
-      <div className="w-[15%] h-[100%] shadow-md bg-blue-500 flex flex-col text-xl">
-        <div className="w-full flex py-2 px-2 flex-col">
+      <div className="w-[15%] h-[100%] shadow-md bg-blue-900 flex flex-col text-xl">
+        <div className="w-full flex py-2 px-1 flex-col">
             {/* <div className=" w-full flex justify-center items-center">
                 <Image 
                 className="Admin w-full"

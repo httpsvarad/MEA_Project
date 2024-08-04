@@ -56,7 +56,7 @@ export default function RegisterForm() {
       setEmail(Email)
     }
     else if(!reg.test(Email)){
-      setEmailError("Valid Email Id ")
+      setEmailError("InValid Email Id ")
     }
     if(Email.trim() === ""){
       setEmailError("Email is Required")
@@ -124,7 +124,7 @@ export default function RegisterForm() {
 
     if(reg.test(Pass2)){
       setPass2Error("");
-      setPassword(Pass2)
+      setConfirmPassword(Pass2)
 
     }
   
