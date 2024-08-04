@@ -10,8 +10,8 @@ export async function DELETE(req) {
             return NextResponse.json('unauthorized', {status: 401})
         }
 
-        const data = await req.json()
-        const { id } = data
+        const url = new URL(req.url);
+        const id = url.searchParams.get('id'); 
 
         //deleting the member reg for the Rejected member 
         const result = await executeQuery({
