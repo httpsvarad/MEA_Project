@@ -1,75 +1,64 @@
-import React from 'react'
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
+"use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Header from "../../Components/Header";
+import Footer from "../../Components/Footer";
 
+export default function Page() {
+  const [events, setEvents] = useState([]);
 
-const page = () => {
-    return (
-        <>
-        <Header />
-        <main>
-            <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
-                <h1 className="text-5xl p-3">Gallery</h1>
-                <p className="text-lg p-3">Home / Gallery</p>
-            </section>
-            <section className='py-10 px-10'>
+  const fetchImages = async () => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch images.");
+      }
+      const result = await response.json();
+      console.log(result);
+      setEvents(result);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    }
+  };
 
+  // Fetch images when the component mounts
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="grid gap-4">
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div className="grid gap-4">
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div className="grid gap-4">
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div className="grid gap-4">
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="" />
-                        </div>
-                        <div>
-                            <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="" />
-                        </div>
-                    </div>
+  return (
+    <>
+      <Header />
+      <main className="h-full">
+        <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
+          <h1 className="text-5xl p-3">Gallery</h1>
+          <p className="text-lg p-3">Home / Gallery</p>
+        </section>
+        <section className="w-full flex flex-col items-center">
+          <div className="w-[90%] min-h-[100vh] flex flex-col">
+            <div className="w-[90%] mt-10">
+              <h1 className="text-[2.5rem]">Gallery</h1>
+            </div>
+            <div className="w-[90%] flex flex-wrap mt-10 gap-10">
+              {events.map((gallery) => (
+                <div
+                  key={gallery.imageId}
+                  className="relative w-full max-w-sm overflow-hidden shadow-lg cursor-pointer group"
+                >
+                  <Image
+                    className="w-full h-[50vh] object-cover transition-transform duration-300 transform group-hover:scale-110"
+                    src={gallery.image}
+                    alt={gallery.title}
+                    width={400}
+                    height={300}
+                  />
                 </div>
-
-
-            </section>
-
-        </main>
-        <Footer />
-        </>
-    )
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }
-
-export default page

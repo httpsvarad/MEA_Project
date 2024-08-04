@@ -25,7 +25,7 @@ export async function POST(req) {
         const fileName =  file.name.replaceAll(" ", "_");
         // console.log(fileName);
         
-        const fullPath ="public/assets/images/" + fileName
+        const fullPath ="/assets/images/" + fileName
         // console.log(fullPath)
         await writeFile(
             path.join(process.cwd(), "public/assets/images/" + fileName),
@@ -86,7 +86,7 @@ export async function DELETE(req){
         })
         console.log(imageData)
 
-        const imageDataPath = process.cwd()+'/'+imageData[0].image
+        const imageDataPath = process.cwd()+'/public'+imageData[0].image
         console.log(imageDataPath)
         
         //caution, it delete the file, check the path above before running this
