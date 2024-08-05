@@ -13,30 +13,25 @@ import GoogleTranslate from "../Components/gtranslate/gtrans";
 export default function Header() {
   const [active, setActive] = useState(false);
   const { data: session } = useSession();
+  console.log(session)
+
   useEffect(() => {
     if (typeof document !== "undefined") {
-      // will run in client's browser only
       var hiddenElements1 = document.querySelectorAll(".hidden1");
-      //   var hiddenElement2 = document.querySelectorAll(".hidden2");
-      //   var hiddenElement2 = document.querySelectorAll(".hidden3");
-      // console.log(hiddenElements);
       OnScrollAnimation(hiddenElements1);
-      //    OnScrollAnimation(hiddenElement2)
     }
 
     if (typeof window !== "undefined") {
-      // Perform localStorage action
       window.addEventListener("scroll", isSticky);
     }
 
     return () => {
       if (typeof window !== "undefined") {
-        // Perform localStorage action
         window.removeEventListener("scroll", isSticky);
       }
     };
   });
-  /* Method that will fix header after a specific scrollable */
+
   const isSticky = (e) => {
     const header = document.querySelector(".header-section");
     const scrollTop = window.scrollY;
@@ -46,41 +41,35 @@ export default function Header() {
   };
 
   return (
-    <div className="HeaderContainer   shadow-lg  w-full flex flex-col text-white bg-white">
-      <div className="NavContainer hidden w-full h-[4.2vh] bg-[#c72626]   justify-between justify-items-center items-center xl:flex ">
-        <div className="flex  justify-center pl-10">
+    <div className="HeaderContainer shadow-lg w-full flex flex-col text-white bg-white">
+      <div className="NavContainer hidden w-full h-[4.2vh] bg-[#c72626] justify-between justify-items-center items-center xl:flex ">
+        <div className="flex justify-center pl-10">
           <h4 className="text-white text-[0.9rem] font-bold ">
             Welcome To Municipal Engineer Association
           </h4>
         </div>
-        <div className=" flex justify-end items-center  pr-10  gap-5">
+        <div className="flex justify-end items-center pr-10 gap-5">
           <div className="flex justify-center gap-1">
-            <div className="flex  justify-center">
+            <div className="flex justify-center">
               <span className="p-1">
                 <FaLocationDot />
-              </span>{" "}
+              </span>
               <h5 className="text-white text-[0.8rem]"> example@gmail.com</h5>
             </div>
           </div>
           <div className="flex gap-1">
-            {/* <Image  
-                                src={call}
-                                className="HeaderEnvlope"
-                                width={50}
-                                height={50}
-                            /> */}
-            <div className="flex  justify-center">
+            <div className="flex justify-center">
               <span className="p-1 ">
                 <IoCall />
-              </span>{" "}
+              </span>
               <h5 className="text-white text-[0.8rem]">+ 91 242342523</h5>
             </div>
           </div>
         </div>
       </div>
-      <div className="HeaderContent h-[12vh]   header-section  w-[100%] bg-white flex justify-center items-center ">
-        <div className="flex w-[100%] bg-white justify-start justify-items-center h-[12vh] ">
-          <div className="flex  ">
+      <div className="HeaderContent h-[12vh] header-section w-[100%] bg-white flex justify-center items-center">
+        <div className="flex w-[100%] bg-white justify-start justify-items-center h-[12vh]">
+          <div className="flex">
             <Image
               src={LOGO}
               className="EMALOGOP ml-2"
@@ -88,7 +77,7 @@ export default function Header() {
               height={100}
             />
           </div>
-          <div className=" justify-center h-[12vh]  sm:flex items-center gap-8 text-black w-[90%] text-[1rem] font-medium xl:flex 	">
+          <div className="justify-center h-[12vh] sm:flex items-center gap-8 text-black w-[90%] text-[1rem] font-medium xl:flex">
             <Link href={"/"}>
               <h2 className="cursor-pointer hidden xl:flex">Home</h2>
             </Link>
@@ -126,16 +115,6 @@ export default function Header() {
                     Distinguished Honorary Fellows
                   </Link>
                 </li>
-                {/* <li>
-                  <Link href="#" className="dropdown-link">
-                    Contributing in Science and Technology
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="dropdown-link">
-                    Participation and Appreciation
-                  </Link>
-                </li> */}
               </ul>
             </div>
             <div className="relative group h-13vh items-center hidden-xl">
@@ -154,13 +133,13 @@ export default function Header() {
               </ul>
             </div>
             <Link href={"/events"}>
-              <h3 className="cursor-pointer	hidden xl:flex">Events</h3>
+              <h3 className="cursor-pointer hidden xl:flex">Events</h3>
             </Link>
             <Link href={"/gallery"}>
-              <h3 className="cursor-pointer	hidden xl:flex">Gallery</h3>
+              <h3 className="cursor-pointer hidden xl:flex">Gallery</h3>
             </Link>
             <Link href={"/contact-us"}>
-              <h3 className="cursor-pointer	hidden xl:flex">Contact Us</h3>
+              <h3 className="cursor-pointer hidden xl:flex">Contact Us</h3>
             </Link>
             {session ? (
               // User is authenticated, show Profile link
@@ -190,8 +169,8 @@ export default function Header() {
           onChange={() => setActive(!active)}
         >
           <label
-            className="label flex h-[13vh]  justify-center justify-items-center"
-            for="check"
+            className="label flex h-[13vh] justify-center justify-items-center"
+            htmlFor="check"
           >
             <input className="input" type="checkbox" id="check" />
             <span className="span"></span>
@@ -204,7 +183,7 @@ export default function Header() {
             <Link href={"/"}>
               <h4>Home</h4>
             </Link>
-            <div className="relative group items-center ">
+            <div className="relative group items-center">
               <h3 className="flex cursor-pointer hover-text-red items-center">
                 About Us{" "}
                 <span className="p-1">
@@ -238,7 +217,7 @@ export default function Header() {
                     Distinguished Honorary Fellows
                   </Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link href="#" className="dropdown-link">
                     Contributing in Science and Technology
                   </Link>
@@ -247,10 +226,10 @@ export default function Header() {
                   <Link href="#" className="dropdown-link">
                     Participation and Appreciation
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
-            <div className="relative group items-center ">
+            <div className="relative group items-center">
               <h3 className="flex cursor-pointer hover-text-red items-center">
                 Members{" "}
                 <span className="p-1">
@@ -299,25 +278,23 @@ export default function Header() {
             <Link href={"/contact-us"}>
               <h4>Contact us</h4>
             </Link>
-            <div>
+            <div className="flex">
               {session ? (
-                // User is authenticated, show Profile link
                 <Link href="/profile">
-                  <h3 className="cursor-pointer hidden xl:flex">Profile</h3>
+                  <h3 className="cursor-pointer  xl:flex">Profile</h3>
                 </Link>
               ) : (
-                // User is not authenticated, show Member Registration link
                 <Link href="/register">
-                  <h3 className="cursor-pointer hidden xl:flex">
+                  <h3 className="cursor-pointer  xl:flex">
                     Member Registration
                   </h3>
                 </Link>
               )}
             </div>
-            <div>
-              {session?.user?.Role === "admin" ? (
+            <div className="w-full text-white z-20">
+              {session?.user?.role === "admin" ? (
                 <Link href="/Admin">
-                  <h3 className="cursor-pointer hidden xl:flex">Admin</h3>
+                  <h3 className="cursor-pointer  xl:flex">Admin</h3>
                 </Link>
               ) : null}
             </div>
