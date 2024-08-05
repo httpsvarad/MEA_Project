@@ -107,16 +107,16 @@ export default function GalleryPage() {
   }
 
   return (
-    <div className="flex w-full h-screen flex-row text-xl">
+    <div className="flex w-full h-[150vh] flex-row text-xl">
       <NAV />
-      <div className="flex flex-col w-full gap-5 items-center  h-screen p-5">
+      <div className="flex flex-col w-[80%] gap-5 items-center  h-[150vh] p-5">
         <h1>Gallery</h1>
-        <form onSubmit={handleUpload} className="w-[70%]  text-white h-[55vh] flex justify-center flex-col gap-5 rounded-xl px-10 bg-blue-500">
+        <form onSubmit={handleUpload} className="w-[70%] py-19   text-white flex h-[80vh] justify-center flex-col gap-5 rounded-xl px-10 bg-blue-500">
           <div className="">
             <label className="">
               Title:
               <input
-                className="w-[80%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
+                className="w-[80%] text-black mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -128,7 +128,7 @@ export default function GalleryPage() {
             <label>
               Date:
               <input
-                   className="w-[80%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
+                   className="w-[80%] text-black mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
@@ -140,7 +140,7 @@ export default function GalleryPage() {
             <label className="flex items-center">
               Description:
               <textarea
-                className="w-[72%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
+                className="w-[72%] mx-5 text-black px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -151,7 +151,7 @@ export default function GalleryPage() {
             <label>
               Image:
               <input               
-                className="w-[80%] mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[white]"
+                className="w-[80%] text-black mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[white]"
  type="file" onChange={handleFileChange} accept="image/*" required />
             </label>
           </div>
@@ -161,12 +161,12 @@ export default function GalleryPage() {
         </form>
         {statusMessage && <p>{statusMessage}</p>}
 
-        <h2>Existing Images</h2>
-        <div>
+        <div className="w-[90%] h-[90vh]  overflow-x-auto justify-center flex flex-col items-center align-center ">
+        <div className=" flex   ">  
           {images.length > 0 ? (
-            <ul>
+            <div className="w-[100%] flex h-[20vh] gap-10 items-start pl-[25%]">
               {images.map((image) => (
-                <li key={image.eventId}>
+                <div key={image.eventId} className="w-[19rem]   justify-center h-[20rem] flex flex-col border-[2px] items-center">
                   <img
                     src={image.image}
                     alt={image.title}
@@ -174,13 +174,14 @@ export default function GalleryPage() {
                   />
                   <p>{image.title}</p>
                   <button onClick={() => handleDelete(image.imageId)}>Delete</button>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           ) : (
             <p>No images available.</p>
           )}
         </div>
+        </div>  
       </div>
     </div>
   );

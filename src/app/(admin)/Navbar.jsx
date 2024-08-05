@@ -5,9 +5,10 @@ import Headers from "./Header"
 
 
 export default function NAV() {
+  const { data: session } = useSession();
     return (
     <>
-      <div className="w-[15%] h-[100%] shadow-md bg-blue-900 flex flex-col text-xl">
+      <div className="w-[15%] h-[100%] shadow-md bg-[#c72626] flex flex-col text-xl">
         <div className="w-full flex py-2 px-1 flex-col">
             {/* <div className=" w-full flex justify-center items-center">
                 <Image 
@@ -17,7 +18,7 @@ export default function NAV() {
             </div> */}
             <div className="w-full flex items-center justify-center flex-nowrap">
                 <h1 className="text-[1.1rem] mb-4 text-white">
-                Welcome, Admin
+                Welcome, {session?.user.name}
                 </h1>
             </div>
             <Headers/>

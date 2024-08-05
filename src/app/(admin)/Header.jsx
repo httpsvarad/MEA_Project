@@ -7,17 +7,17 @@ export default function Headers() {
         <div className="w-full ">
             <ul className="flex items-center flex-col border-spacing-5 mt-2 ">
                 <Link href="/Admin" className=" cursor-pointer text-white text-[1rem] border-y-[2px] border-white h-[7vh] items-center
-                 hover:bg-blue-500 w-full flex justify-center ">Home</Link>
+                 hover:bg-red-500 w-full flex justify-center ">Home</Link>
                 <Link href="/Admin/Members" className=" cursor-pointer text-white text-[1rem]  border-white h-[7vh] items-center
-                 hover:bg-blue-500 w-full flex justify-center">Members</Link>
+                 hover:bg-red-500 w-full flex justify-center">Members</Link>
                 <Link href="/Admin/member_req" className="  cursor-pointer text-white text-[1rem] border-y-[2px] border-white h-[7vh] items-center
-                 hover:bg-blue-500 w-full flex justify-center">Members Request</Link>
+                 hover:bg-red-500 w-full flex justify-center">Members Request</Link>
                 <Link href={'/Admin/replies'} className="  cursor-pointer text-white text-[1rem] border-b-[2px] border-white h-[7vh] items-center
-                 hover:bg-blue-500 w-full flex justify-center">Replies</Link>
+                 hover:bg-red-500 w-full flex justify-center">Replies</Link>
                 <Link href={'/Admin/Events'} className=" cursor-pointer text-white text-[1rem]  border-white h-[7vh] items-center
-                 hover:bg-blue-500 w-full flex justify-center">Events</Link>
+                 hover:bg-red-500 w-full flex justify-center">Events</Link>
                 <Link href={'/Admin/gallery'} className="  cursor-pointer text-white text-[1rem] border-y-[2px] border-white h-[7vh] items-center
-                 hover:bg-blue-500 w-full flex justify-center">Gallery</Link>
+                 hover:bg-red-500 w-full flex justify-center">Gallery</Link>
             </ul>
         {/* </div> */}
       </div>
