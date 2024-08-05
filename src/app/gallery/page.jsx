@@ -29,24 +29,24 @@ export default function Page() {
   return (
     <>
       <Header />
-      <main className="h-full">
+      <main className="min-h-screen flex flex-col">
         <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
           <h1 className="text-5xl p-3">Gallery</h1>
           <p className="text-lg p-3">Home / Gallery</p>
         </section>
-        <section className="w-full flex flex-col items-center">
-          <div className="w-[90%] min-h-[100vh] flex flex-col">
+        <section className="w-full flex flex-col items-center flex-grow">
+          <div className="w-[90%] flex flex-col">
             <div className="w-[90%] mt-10">
               <h1 className="text-[2.5rem]">Gallery</h1>
             </div>
-            <div className="w-[90%] flex flex-wrap mt-10 gap-10">
+            <div className=" flex flex-wrap m-10 gap-10">
               {events.map((gallery) => (
                 <div
                   key={gallery.imageId}
                   className="relative w-full max-w-sm overflow-hidden shadow-lg cursor-pointer group"
                 >
                   <Image
-                    className="w-full h-[50vh] object-cover transition-transform duration-300 transform group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
                     src={gallery.image}
                     alt={gallery.title}
                     width={400}

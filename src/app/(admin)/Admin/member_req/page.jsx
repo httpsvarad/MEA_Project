@@ -39,7 +39,7 @@ export default function Page() {
     try {
       // Example: Send a POST request to accept the member
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/admin/members/?id=${id}`,
+        `${process.env.NEXT_PUBLIC_HOST}/api/admin/members?id=${id}`,
         {
           method: "POST",
           headers: {
@@ -50,6 +50,9 @@ export default function Page() {
 
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
+      }
+      else{
+        handleDecline(id)
       }
 
       // Optionally update state to reflect changes
@@ -65,7 +68,7 @@ export default function Page() {
     try {
       // Example: Send a DELETE request to decline the member
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/admin/members/?id=${id}`,
+        `${process.env.NEXT_PUBLIC_HOST}/api/admin/members?id=${id}`,
         {
           method: "DELETE",
           headers: {
