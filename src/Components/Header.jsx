@@ -147,28 +147,8 @@ export default function Header() {
               </h3>
               <ul className="dropdown-menu">
                 <li>
-                  <Link href="#" className="dropdown-link">
-                    Designation1
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="dropdown-link">
-                    Designation2
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="dropdown-link">
-                    Designation3
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="dropdown-link">
-                    Designation4
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="dropdown-link">
-                    Designation5
+                  <Link href="/registered-members" className="dropdown-link">
+                    Registered Members
                   </Link>
                 </li>
               </ul>

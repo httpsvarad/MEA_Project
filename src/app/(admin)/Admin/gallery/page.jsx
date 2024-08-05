@@ -16,18 +16,14 @@ export default function GalleryPage() {
   // Fetch images function
   const fetchImages = async () => {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery`
-      );
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery`);
       if (!response.ok) {
         throw new Error("Failed to fetch images.");
       }
       const result = await response.json();
       setImages(result);
     } catch (error) {
-      setStatusMessage(
-        error.message || "An error occurred while fetching images."
-      );
+      setStatusMessage(error.message || "An error occurred while fetching images.");
     }
   };
 
@@ -57,16 +53,13 @@ export default function GalleryPage() {
     formData.append("description", description);
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery`,
-        {
-          method: "POST",
-          headers: {
-            authorization: process.env.NEXT_PUBLIC_API_KEY,
-          },
-          body: formData,
-        }
-      );
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery`, {
+        method: "POST",
+        headers: {
+          authorization: process.env.NEXT_PUBLIC_API_KEY,
+        },
+        body: formData,
+      });
 
       if (!response.ok) {
         const result = await response.json();
@@ -82,24 +75,19 @@ export default function GalleryPage() {
       // Refresh images list
       await fetchImages();
     } catch (error) {
-      setStatusMessage(
-        error.message || "An error occurred while uploading the image."
-      );
+      setStatusMessage(error.message || "An error occurred while uploading the image.");
     }
   };
 
   // Handle image delete
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery?id=${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            authorization: process.env.NEXT_PUBLIC_API_KEY,
-          },
-        }
-      );
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/admin/gallery?id=${id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: process.env.NEXT_PUBLIC_API_KEY,
+        },
+      });
 
       if (!response.ok) {
         const result = await response.json();
@@ -110,30 +98,30 @@ export default function GalleryPage() {
       // Refresh images list
       await fetchImages();
     } catch (error) {
-      setStatusMessage(
-        error.message || "An error occurred while deleting the image."
-      );
+      setStatusMessage(error.message || "An error occurred while deleting the image.");
     }
   };
 
+  // Unauthorized access
   if (session?.user?.role !== "admin") {
     return <Unauthorized />;
   }
 
   return (
-    <div className="flex w-full h-[100vh] flex-row text-xl">
+    <div className="flex w-full h-screen flex-row bg-gray-100">
       <NAV />
-      <div className="flex flex-col w-[80%] gap-5 items-center  h-[100vh] p-5">
-        <h1>Gallery</h1>
+      <main className="flex flex-col w-full md:w-4/5 lg:w-3/4 xl:w-2/3 gap-8 p-8 overflow-y-auto">
+        <h1 className="text-3xl font-bold text-gray-800">Gallery</h1>
+        
         <form
           onSubmit={handleUpload}
-          className="w-[70%] py-19   text-white flex h-[80vh] justify-center flex-col gap-5 rounded-xl px-10 bg-[#c72626]"
+          className="bg-white shadow-md rounded-lg p-6 flex flex-col gap-6"
         >
-          <div className="">
-            <label className="">
+          <div>
+            <label className="block font-semibold text-gray-700">
               Title:
               <input
-                className="w-[80%] text-black mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -142,10 +130,10 @@ export default function GalleryPage() {
             </label>
           </div>
           <div>
-            <label>
+            <label className="block font-semibold text-gray-700">
               Date:
               <input
-                className="w-[80%] text-black mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
@@ -154,10 +142,10 @@ export default function GalleryPage() {
             </label>
           </div>
           <div>
-            <label className="flex items-center">
+            <label className="block font-semibold text-gray-700">
               Description:
               <textarea
-                className="w-[72%] mx-5 text-black px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C72625]"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -165,10 +153,10 @@ export default function GalleryPage() {
             </label>
           </div>
           <div>
-            <label>
+            <label className="block font-semibold text-gray-700">
               Image:
               <input
-                className="w-[80%] text-black mx-5 px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[white]"
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="file"
                 onChange={handleFileChange}
                 accept="image/*"
@@ -176,47 +164,51 @@ export default function GalleryPage() {
               />
             </label>
           </div>
-          <div className="w-full flex justify-center">
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="w-[8rem] h-[5vh]   text-white bg-green-500 rounded-lg"
+              className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300"
             >
               Upload
             </button>
           </div>
         </form>
-        {statusMessage && <p>{statusMessage}</p>}
 
-        <div className="w-[90%] h-[80vh] overflow-x-auto justify-start flex flex-col items-start">
-          <div className=" flex   ">
+        {statusMessage && (
+          <p className={`text-center mt-4 ${statusMessage.includes("error") ? "text-red-500" : "text-green-500"}`}>
+            {statusMessage}
+          </p>
+        )}
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Uploaded Images</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {images.length > 0 ? (
-              <div className="w-[100%] flex h-[20vh] gap-10 items-start">
-                {images.map((image) => (
-                  <div
-                    key={image.eventId}
-                    className="w-[19rem] justify-center h-auto p-5 flex flex-col border-[2px] items-center"
+              images.map((image) => (
+                <div
+                  key={image.eventId}
+                  className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center"
+                >
+                  <img
+                    src={image.image}
+                    alt={image.title}
+                    className="w-full h-40 object-cover rounded-lg"
+                  />
+                  <p className="mt-2 text-lg font-semibold text-gray-700">{image.title}</p>
+                  <button
+                    onClick={() => handleDelete(image.eventId)}
+                    className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
                   >
-                    <img
-                      src={image.image}
-                      alt={image.title}
-                      style={{ width: "200px", height: "auto" }}
-                    />
-                    <p>{image.title}</p>
-                    <button
-                      className="w-[5rem] h-[2rem] text-white rounded-md bg-red-600"
-                      onClick={() => handleDelete(image.imageId)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                ))}
-              </div>
+                    Delete
+                  </button>
+                </div>
+              ))
             ) : (
-              <p>No images available.</p>
+              <p className="text-center text-gray-600">No images available.</p>
             )}
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }

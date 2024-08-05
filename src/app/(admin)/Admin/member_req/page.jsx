@@ -37,7 +37,6 @@ export default function Page() {
 
   const handleAccept = async (id) => {
     try {
-      // Example: Send a POST request to accept the member
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/admin/members?id=${id}`,
         {
@@ -50,12 +49,10 @@ export default function Page() {
 
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
-      }
-      else{
-        handleDecline(id)
+      } else {
+        handleDecline(id);
       }
 
-      // Optionally update state to reflect changes
       setMembers((prevMembers) =>
         prevMembers.filter((member) => member.id !== id)
       );
@@ -66,7 +63,6 @@ export default function Page() {
 
   const handleDecline = async (id) => {
     try {
-      // Example: Send a DELETE request to decline the member
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/admin/members?id=${id}`,
         {
@@ -81,7 +77,6 @@ export default function Page() {
         throw new Error(`Error: ${response.statusText}`);
       }
 
-      // Optionally update state to reflect changes
       setMembers((prevMembers) =>
         prevMembers.filter((member) => member.id !== id)
       );
@@ -92,44 +87,58 @@ export default function Page() {
 
   return (
     <>
-      {session?.user?.role === 'admin' ? (
-        <div className="flex w-full h-screen flex-row text-xl ">
+      {session?.user?.role === "admin" ? (
+        <div className="flex w-full h-screen flex-row text-xl bg-gray-100">
           <NAV />
-          <div className='flex flex-col w-full gap-5 h-screen items-center  overflow-y-auto px-5 py-5'>
-            <h1 className="text-[1.7rem] font-bold">Requested Members List</h1>
+          <div className="flex flex-col w-full gap-8 px-8 py-6 h-screen overflow-y-auto">
+            <h1 className="text-3xl font-bold text-gray-800 text-center">
+              Requested Members List
+            </h1>
             {members.length === 0 ? (
-              <p>No members found.</p>
+              <p className="text-gray-600 text-lg">No members found.</p>
             ) : (
               members.map((member) => (
-                <div key={member.id} className="container gap-2 w-full p-4 border-[2px] rounded-xl flex flex-col justify-center  border-gray-300">
-                  <p>
-                    <strong>Name:</strong> {member.fullName}
-                  </p>
-                  <p>
-                    <strong>ID:</strong> {member.id}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {member.email}
-                  </p>
-                  <p>
-                    <strong>Contact Number:</strong> {member.contactNumber}
-                  </p>
-                  <p>
-                    <strong>Designation:</strong> {member.designation}
-                  </p>
-                  <p>
-                    <strong>Role:</strong> {member.Role}
-                  </p>
-                  <div className="flex gap-2">
+                <div
+                  key={member.id}
+                  className="bg-white shadow-md rounded-lg p-6 border border-gray-200 flex flex-col justify-between"
+                >
+                  <div>
+                    <p className="text-lg text-gray-700">
+                      <strong className="font-semibold">Name:</strong>{" "}
+                      {member.fullName}
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="font-semibold">ID:</strong> {member.id}
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="font-semibold">Email:</strong>{" "}
+                      {member.email}
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="font-semibold">
+                        Contact Number:
+                      </strong>{" "}
+                      {member.contactNumber}
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="font-semibold">Designation:</strong>{" "}
+                      {member.designation}
+                    </p>
+                    <p className="text-lg text-gray-700">
+                      <strong className="font-semibold">Role:</strong>{" "}
+                      {member.Role}
+                    </p>
+                  </div>
+                  <div className="flex gap-4 mt-4">
                     <button
                       onClick={() => handleAccept(member.id)}
-                      className="px-4 py-2 bg-green-500 text-white rounded"
+                      className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition duration-300 ease-in-out"
                     >
                       Accept
                     </button>
                     <button
                       onClick={() => handleDecline(member.id)}
-                      className="px-4 py-2 bg-red-500 text-white rounded"
+                      className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded transition duration-300 ease-in-out"
                     >
                       Decline
                     </button>
