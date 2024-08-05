@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { IoCall } from "react-icons/io5";
 import BlackANDWHITE from "../Assets/IMGs/BlackANDWHITE.png"
 import heromage from "../Assets/IMGs/hero-image.png"
@@ -24,26 +24,44 @@ const nunito = Nunito
 
     })
 export default function Landing() {
+    const [events, setEvents] = useState([]);
+    console.log(events);
+
+    const fetchImages = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_HOST}/api/admin/event`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch images.");
+        }
+        const result = await response.json();
+        setEvents(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     //On Scroll Animation Function
     useEffect(() => {
-        if (typeof document !== 'undefined') {
-            // will run in client's browser only
-            var hiddenElements1 = document.querySelectorAll(".hidden3");
-            var hiddenElements = document.querySelectorAll(".hidden2");
-            var hiddenElement2 = document.querySelectorAll(".hidden1");
-            var hiddenElement3 = document.querySelectorAll(".hidden4");
-
-            //   var hiddenElement2 = document.querySelectorAll(".hidden3");
-            // console.log(hiddenElements);
-            OnScrollAnimation(hiddenElements1)
-            OnScrollAnimation(hiddenElements)
-            OnScrollAnimation(hiddenElement2)
-            OnScrollAnimation(hiddenElement3)
-
-            //    OnScrollAnimation(hiddenElement2)
-        }
+        fetchImages();
+       
     }, []);
+    if (typeof document !== 'undefined') {
+        // will run in client's browser only
+        var hiddenElements1 = document.querySelectorAll(".hidden3");
+        var hiddenElements = document.querySelectorAll(".hidden2");
+        var hiddenElement2 = document.querySelectorAll(".hidden1");
+        var hiddenElement3 = document.querySelectorAll(".hidden4");
 
+        //   var hiddenElement2 = document.querySelectorAll(".hidden3");
+        // console.log(hiddenElements);
+        OnScrollAnimation(hiddenElements1)
+        OnScrollAnimation(hiddenElements)
+        OnScrollAnimation(hiddenElement2)
+        OnScrollAnimation(hiddenElement3)
+
+        //    OnScrollAnimation(hiddenElement2)
+    }
     return (
         <div>
             <Header />
@@ -302,43 +320,41 @@ export default function Landing() {
                 </div>
 
             </div>
-            <div className="w-full h-[inherte]  flex flex-col items-center">
+            <div className="w-full min-h-screen  flex flex-col items-center">
                 <div className="w-[90%] h-[15vh] bg-[#c72626]  items-center justify-center flex">
                     <h1 className=" text-[1.3rem] md:text-[1.5rem] xl:text-[2.5rem] text-white  ">Municipal Engineer Association</h1>
                 </div>
-                <div className="w-[90%] h-auto items-center flex flex-col">
-                    <div className="w-[90%] mt-10 ">
-                        <h1 className="text-center text-[2.5rem]">Events</h1>
+                <section className="w-full flex flex-col  items-center flex-grow">
+          <div className="w-[90%] flex flex-col">
+            <div className="w-[90%] mt-10">
+              <h1 className="text-[2.5rem]">Events</h1>
+            </div>
+            <div className="w-full min-h-fit flex  flex-wrap m-10 gap-10">
+              {events.map((event) => (
+                <div
+                  key={event.eventId}
+                  className="relative w-full max-w-sm overflow-hidden shadow-lg cursor-pointer group hidden3"
+                >
+                  <Image
+                    className="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
+                    src={event.image}
+                    alt={event.title}
+                    width={400}
+                    height={300}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-white transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    <div className="text-center p-4">
+                      <p className="text-sm text-black mb-2">{event.date}</p>
+                      <h2 className="text-xl font-bold text-black">
+                        {event.title}
+                      </h2>
                     </div>
-                    <div className="w-[90%] flex flex-col md:flex-row mb-10 mt-10 gap-10">
-                        <div className="relative w-full max-w-sm overflow-hidden shadow-lg cursor-pointer group hidden3 ">
-                            <Image
-                                className="w-full h-[50vh] object-cover transition-transform duration-300 transform group-hover:scale-110"
-                                src={IMGs}
-                                alt="Seminar On Low Cost Housing"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center bg-white transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                                <div className="text-center p-4">
-                                    <p className="text-sm text-black  mb-2">DECEMBER 10, 2022</p>
-                                    <h2 className="text-xl font-bold text-black">Seminar On Low Cost Housing</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="relative w-full max-w-sm overflow-hidden shadow-lg cursor-pointer hidden4 group">
-                            <Image
-                                className="w-full h-[50vh] object-cover transition-transform duration-300 transform group-hover:scale-110"
-                                src={heromage}
-                                alt="Seminar On Low Cost Housing"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center bg-white transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                                <div className="text-center p-4">
-                                    <p className="text-sm text-black mb-2">DECEMBER 10, 2022</p>
-                                    <h2 className="text-xl font-bold text-black">Seminar On Low Cost Housing</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
             </div>
         </div>
