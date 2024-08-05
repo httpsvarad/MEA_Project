@@ -160,10 +160,10 @@ export default function ImageUploadForm() {
           <button type="submit" className="w-[8rem] h-[5vh]  mt-5 text-white bg-green-500 rounded-lg">Upload</button>
           </div>        </form>
         {statusMessage && <p>{statusMessage}</p>}
-        <div className="w-[90%] h-[90vh]  overflow-x-auto justify-center flex flex-col items-center align-center ">
+        <div className="w-[90%] h-[90vh]  overflow-x-auto justify-center flex flex-col items-center align-center">
         <div className=" flex   ">  
           {images.length > 0 ? (
-            <div className="w-[100%] flex h-[20vh] gap-10 items-start pl-[25%]">
+            <div className="w-[100%] flex h-[20vh] gap-10 items-center justify-items-center">
               {images.map((image) => (
                 <div key={image.eventId} className="w-[19rem]   justify-center h-[20rem] flex flex-col border-[2px] items-center">
                   <img

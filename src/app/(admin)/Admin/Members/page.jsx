@@ -59,7 +59,7 @@ export default function Page() {
         <NAV />
         <div className='flex flex-col w-full px-5 py-5 gap-5 h-screen  overflow-y-auto '>
           <h1 className='text-[2rem] font-bold'>Members</h1>
-          <div>
+          <div className='flex gap-5 flex-col'>
             {members.map((member) => (
               <div key={member.memberId} className="container gap-2 w-full p-4 border-[2px] rounded-xl flex flex-col justify-center  border-gray-300">
                 <p>

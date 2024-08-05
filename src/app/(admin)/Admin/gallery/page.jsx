@@ -109,9 +109,9 @@ export default function GalleryPage() {
   return (
     <div className="flex w-full h-[150vh] flex-row text-xl">
       <NAV />
-      <div className="flex flex-col w-[80%] gap-5 items-center  h-[150vh] p-5">
+      <div className="flex flex-col w-[85%] gap-5 items-center  h-[150vh] p-5">
         <h1>Gallery</h1>
-        <form onSubmit={handleUpload} className="w-[70%] py-19   text-white flex h-[80vh] justify-center flex-col gap-5 rounded-xl px-10 bg-blue-500">
+        <form onSubmit={handleUpload} className="w-[70%] py-19   text-white flex h-[80vh] justify-center flex-col gap-5 rounded-xl px-10 bg-[#c72626]">
           <div className="">
             <label className="">
               Title:

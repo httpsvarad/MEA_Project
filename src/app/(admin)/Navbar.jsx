@@ -8,7 +8,7 @@ export default function NAV() {
   const { data: session } = useSession();
     return (
     <>
-      <div className="w-[15%] h-[100%] shadow-md bg-[#c72626] flex flex-col text-xl">
+      <div className="w-[50%] md:w-[25%] gl:w-[19%] xl:w-[15%] xl:h-[100%] shadow-md bg-[#c72626] flex flex-col  xl:text-xl">
         <div className="w-full flex py-2 px-1 flex-col">
             {/* <div className=" w-full flex justify-center items-center">
                 <Image 
@@ -17,7 +17,7 @@ export default function NAV() {
                 alt="Admin" />
             </div> */}
             <div className="w-full flex items-center justify-center flex-nowrap">
-                <h1 className="text-[1.1rem] mb-4 text-white">
+                <h1 className="text-[0.9rem] xl:text-[1.2rem]  mb-4 text-white">
                 Welcome, {session?.user.name}
                 </h1>
             </div>

@@ -35,12 +35,12 @@ export default function Page() {
   return (
     <>
     {session?.user?.role === 'admin' ? (  
-      <div className="flex w-full h-screen flex-row text-3xl">
+      <div className="flex w-full h-screen flex-row text-[1.5rem]">
         <NAV />
         <div className='flex flex-col w-full gap-5 h-screen items-center  overflow-y-auto px-5 py-5'>
           <h1>Replies</h1>
-          <div>
-            {replies.map((reply) => (
+          <div className='flex gap-5 flex-col w-full'>        
+                {replies.map((reply) => (
               <div key={reply.replyId} className="container gap-2 w-full p-4 border-[2px] rounded-xl flex flex-col justify-center  border-gray-300">
                 <p><strong>Name:</strong> {reply.fullName}</p>
                 <p><strong>Email:</strong> {reply.email}</p>
