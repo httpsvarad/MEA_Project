@@ -11,14 +11,16 @@ export default function Page() {
 
   const fetchImages = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/admin/event`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}/api/admin/event`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch images.");
       }
       const result = await response.json();
       setEvents(result);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -27,40 +29,40 @@ export default function Page() {
     fetchImages();
   }, []);
 
-    if (typeof document !== "undefined") {
-      // Will run in client's browser only
-      const hiddenElements1 = document.querySelectorAll(".hidden3");
-      const hiddenElements4 = document.querySelectorAll(".hidden4");
-      const hiddenElements2 = document.querySelectorAll(".hidden2");
-      const hiddenElements3 = document.querySelectorAll(".hidden");
+  if (typeof document !== "undefined") {
+    // Will run in client's browser only
+    const hiddenElements1 = document.querySelectorAll(".hidden3");
+    const hiddenElements4 = document.querySelectorAll(".hidden4");
+    const hiddenElements2 = document.querySelectorAll(".hidden2");
+    const hiddenElements3 = document.querySelectorAll(".hidden");
 
-      OnScrollAnimation(hiddenElements1);
-      OnScrollAnimation(hiddenElements4);
-      OnScrollAnimation(hiddenElements2);
-      OnScrollAnimation(hiddenElements3);
-    }
+    OnScrollAnimation(hiddenElements1);
+    OnScrollAnimation(hiddenElements4);
+    OnScrollAnimation(hiddenElements2);
+    OnScrollAnimation(hiddenElements3);
+  }
 
   return (
     <>
       <Header />
-      <main className="h-full">
+      <main className="min-h-screen flex flex-col">
         <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
           <h1 className="text-5xl p-3">Events</h1>
           <p className="text-lg p-3">Home / Events</p>
         </section>
-        <section className="w-full flex flex-col items-center">
-          <div className="w-[90%] h-[100vh] flex flex-col">
+        <section className="w-full flex flex-col items-center flex-grow">
+          <div className="w-[90%] flex flex-col">
             <div className="w-[90%] mt-10">
               <h1 className="text-[2.5rem]">Events</h1>
             </div>
-            <div className="w-[90%] flex flex-wrap mt-10 gap-10">
+            <div className="w-full min-h-fit flex flex-wrap m-10 gap-10">
               {events.map((event) => (
                 <div
                   key={event.eventId}
                   className="relative w-full max-w-sm overflow-hidden shadow-lg cursor-pointer group hidden3"
                 >
                   <Image
-                    className="w-full h-[50vh] object-cover transition-transform duration-300 transform group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-110"
                     src={event.image}
                     alt={event.title}
                     width={400}
@@ -79,8 +81,8 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }
