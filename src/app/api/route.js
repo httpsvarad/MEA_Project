@@ -62,6 +62,15 @@ export async function GET(req) {
       );
     `;
 
+      //create honorary table
+      const createHonoraryTable = `
+      CREATE TABLE IF NOT EXISTS honorary (
+        honoraryId INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(100),
+        role VARCHAR(100)
+      );
+    `;
+
     // Execute the query to create the memberReg table
     const resultMemberReg = await executeQuery({ query: createMemberRegTable });
     console.log("memberReg table created or already exists.");
@@ -78,8 +87,11 @@ export async function GET(req) {
 
     const resultGallery = await executeQuery({ query: createGalleryTable });
     console.log("gallery table created or already exists.");
+
+    const resultHonorary = await executeQuery({ query: createHonoraryTable });
+    console.log("honorary table created or already exists.");
     // Return the result as a JSON response
-    return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers, resultEvents, resultGallery } });
+    return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers, resultEvents, resultGallery, resultHonorary } });
 
   } catch (err) {
     console.error("Error executing query:", err);
