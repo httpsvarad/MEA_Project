@@ -47,7 +47,7 @@ export async function GET(req) {
     CREATE TABLE IF NOT EXISTS events (
       eventId INT PRIMARY KEY AUTO_INCREMENT,
       title VARCHAR(255),
-      date date,
+      date VARCHAR(20),
       image VARCHAR(100),
       description VARCHAR(255)
     );

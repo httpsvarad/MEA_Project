@@ -196,7 +196,7 @@ export default function GalleryPage() {
                   />
                   <p className="mt-2 text-lg font-semibold text-gray-700">{image.title}</p>
                   <button
-                    onClick={() => handleDelete(image.eventId)}
+                    onClick={() => handleDelete(image.imageId)}
                     className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
                   >
                     Delete

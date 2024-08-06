@@ -9,12 +9,12 @@ const page = () => {
     <main>
       <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
         <h1 className="text-5xl p-3">Background of MEA</h1>
-        <p className="text-lg p-3"> Home / Background of MEA</p>
+        <p className="text-lg p-3"> About us / Background of MEA</p>
       </section>
       <section className='py-10 px-10 '>
         <div className='flex gap-7 py-5 flex-col md:flex-row'>
           <div className='md:w-[50%]'>
-            <p className=' text-gray-500 dark:text-gray-400 first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:me-3 first-letter:float-start text-justify'>Dear Engineer Friends,
+            <p className='  first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900  first-letter:me-3 first-letter:float-start text-justify'>Dear Engineer Friends,
               <br />
               It is an established fact that some engineers who run businesses under the name of Brihanmumbai Engineers Union become active in December by showing false promises. Before <span className='font-bold text-white px-1 bg-[#C72626]'>Mr. Sadashivrao Tinaykar</span> became the Municipal Commissioner, the maintenance, repair, and renovation of various equipment in municipal hospitals and dispensaries were managed through the administration. Upon taking office, Mr. Tinaykar observed that some officials were causing financial losses to the municipality. Consequently, he established a separate department for the maintenance, repair, and renovation of equipment in all hospitals and dispensaries. This department was entrusted to Engineer Divekar and his team. Engineer Divekar and his team managed their responsibilities diligently and repaired many pieces of equipment in municipal hospitals at a lower cost. However, some officials filed complaints against Engineer Divekar and his team. Although Mr. Sadashivrao Tinaykar did not take any action, he later began some conspiracies. 
               <br />

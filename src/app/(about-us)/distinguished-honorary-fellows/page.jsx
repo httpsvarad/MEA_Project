@@ -1,143 +1,55 @@
-import React from 'react'
+"use client"
+import React, { useState, useEffect } from 'react';
 import Header from '../../../Components/Header';
 import Footer from '../../../Components/Footer';
 
-const page = () => {
+const DistinguishedHonoraryFellows = () => {
+    const [profiles, setProfiles] = useState([]);
+
+    // Function to fetch profile data from the API
+    const fetchProfiles = async () => {
+        try {
+            const response = await fetch('/api/admin/honorary');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setProfiles(data); // Assume the data is an array of profile objects
+        } catch (error) {
+            console.error('Error fetching profiles:', error);
+        }
+    };
+
+    // Fetch profiles when the component mounts
+    useEffect(() => {
+        fetchProfiles();
+    }, []);
+
     return (
         <>
-        <Header />
-        <main>
-            <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
-                <h1 className="text-5xl p-3">Distinguished Honorary Fellows</h1>
-                <p className="text-lg p-3"> Home / About Us / Distinguished Honorary Fellows</p>
-            </section>
-            <section className='px-10 py-10'>
-            <div className='flex flex-col  items-center md:flex-row gap-5 justify-between py-5'>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Adv. Mahabal Shetty</h5>
-                        <p className='text-center'>President / General Secretary</p>
+            <Header />
+            <main>
+                <section className="h-44 bg-[#232323] flex justify-center items-center flex-col text-white">
+                    <h1 className="text-5xl p-3">Distinguished Honorary Fellows</h1>
+                    <p className="text-lg p-3"> About Us / Distinguished Honorary Fellows</p>
+                </section>
+                <section className='px-10 py-10'>
+                    <div className='flex flex-wrap justify-center gap-5'>
+                        {profiles.map((profile, index) => (
+                            <div key={index} className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <img className="rounded-t-lg" src={profile.image} alt={profile.name} />
+                                <div className="p-5">
+                                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">{profile.name}</h5>
+                                    <p className='text-center'>{profile.role}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Vijay Pachpande</h5>
-                    <p className='text-center'>Vice President</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Ramesh Malviya</h5>
-                    <p className='text-center'>Vice President</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className='flex flex-col items-center md:flex-row gap-5  justify-between py-5'>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Ramesh Kurhade</h5>
-                    <p className='text-center'>Secretary</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. T.V. Shah</h5>
-                    <p className='text-center'>Founder Member</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Jeevan Patil</h5>
-                    <p className='text-center'>Vice presidet</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className='flex justify-between items-center flex-col gap-5 md:flex-row py-5'>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Satish Kumar Vani</h5>
-                    <p className='text-center'>Vice President</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Jagannath Gavane</h5>
-                    <p className='text-center'>President</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Navnath Ghadge</h5>
-                    <p className='text-center'>Secretary</p>
-                    </div>
-                </div>
-                
-            </div>
-            <div className='flex justify-between items-center flex-col gap-5   md:flex-row py-5'>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Rajendra Joshi</h5>
-                    <p className='text-center'>Executive Chairman</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Vishal Kokate</h5>
-                    <p className='text-center'>Vice President</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Yashpal Hungergekar</h5>
-                    <p className='text-center'>Secretary</p>
-                    </div>
-                </div>
-                
-            </div>
-            <div className='flex justify-between items-center flex-col  gap-5  md:flex-row py-5'>
-                <div className="max-w-sm bg-white border mb-5 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Ramesh Bhutekar Deshmukh</h5>
-                    <p className='text-center'>Secretary</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Jayant Kharade</h5>
-                    <p className='text-center'>Vice President</p>
-                    </div>
-                </div>
-                <div className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg" src="https://shorturl.at/Zq2NJ" alt="" />
-                    <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">Engr. Deepak Chaugule</h5>
-                    <p className='text-center'>Vice President</p>
-                    </div>
-                </div>
-                
-            </div>
-            </section>
-
-        </main>
-        <Footer />
+                </section>
+            </main>
+            <Footer />
         </>
-    )
-}
+    );
+};
 
-export default page
+export default DistinguishedHonoraryFellows;

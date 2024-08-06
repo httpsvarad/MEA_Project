@@ -55,6 +55,7 @@ export default function ImageUploadForm() {
     formData.append("title", title);
     formData.append("date", date);
     formData.append("description", description);
+    console.log(date)
 
     try {
       const response = await fetch(
