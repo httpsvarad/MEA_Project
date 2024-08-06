@@ -26,6 +26,7 @@ const DistinguishedHonoraryFellows = () => {
     }, []);
 
     return (
+
         <>
             <Header />
             <main>
@@ -37,10 +38,9 @@ const DistinguishedHonoraryFellows = () => {
                     <div className='flex flex-wrap justify-center gap-5'>
                         {profiles.map((profile, index) => (
                             <div key={index} className="max-w-sm bg-white mb-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                <img className="rounded-t-lg" src={profile.image} alt={profile.name} />
                                 <div className="p-5">
-                                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">{profile.name}</h5>
-                                    <p className='text-center'>{profile.role}</p>
+                                    <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-white ">{profile.name}</h5>
+                                    <p className='text-center text-white'>{profile.role}</p>
                                 </div>
                             </div>
                         ))}
