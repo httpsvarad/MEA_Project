@@ -47,7 +47,7 @@ export async function GET(req) {
     CREATE TABLE IF NOT EXISTS events (
       eventId INT PRIMARY KEY AUTO_INCREMENT,
       title VARCHAR(255),
-      date date,
+      date VARCHAR(20),
       image VARCHAR(100),
       description VARCHAR(255)
     );
@@ -59,6 +59,15 @@ export async function GET(req) {
         imageId INT PRIMARY KEY AUTO_INCREMENT,
         title VARCHAR(100),
         image VARCHAR(100)
+      );
+    `;
+
+      //create honorary table
+      const createHonoraryTable = `
+      CREATE TABLE IF NOT EXISTS honorary (
+        honoraryId INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(100),
+        role VARCHAR(100)
       );
     `;
 
@@ -78,8 +87,11 @@ export async function GET(req) {
 
     const resultGallery = await executeQuery({ query: createGalleryTable });
     console.log("gallery table created or already exists.");
+
+    const resultHonorary = await executeQuery({ query: createHonoraryTable });
+    console.log("honorary table created or already exists.");
     // Return the result as a JSON response
-    return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers, resultEvents, resultGallery } });
+    return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers, resultEvents, resultGallery, resultHonorary } });
 
   } catch (err) {
     console.error("Error executing query:", err);

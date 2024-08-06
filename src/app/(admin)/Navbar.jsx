@@ -1,3 +1,4 @@
+"use client"
 // import Image from "next/image"
 // import IMGs from "../../Assets/IMGs/man.png"
 import { useSession } from "next-auth/react";
