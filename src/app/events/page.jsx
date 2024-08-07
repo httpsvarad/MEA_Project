@@ -74,6 +74,7 @@ export default function Page() {
                       <h2 className="text-xl font-bold text-black">
                         {event.title}
                       </h2>
+                      <p className="text-lg text-black">{event.description}</p>
                     </div>
                   </div>
                 </div>
