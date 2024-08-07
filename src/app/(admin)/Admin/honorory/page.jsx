@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
+import Unauthorized from "../../Unauthorized";
 import NAV from "../../Navbar";
 
 export default function HonoraryManagementPage() {
+  const { data: session } = useSession();
   const [honoraryList, setHonoraryList] = useState([]);
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
@@ -90,6 +93,9 @@ export default function HonoraryManagementPage() {
       setStatusMessage(error.message);
     }
   };
+  if (session?.user?.role !== "admin") {
+    return <Unauthorized />;
+  }
 
   return (
     <div className="flex w-full h-screen flex-row text-xl bg-gray-100">

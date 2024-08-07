@@ -290,7 +290,7 @@ export default function Landing() {
                         </div>
                     </div> */}
                     <div className="w-[50%]">
-                        <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                        <ul className="max-w-md space-y-1  list-disc list-inside ">
                             <li className="font-bold">Sharad Rao</li>
                             <li>Adv. Mahabal Shetty - President / General Secretary</li>
                             <li>Engr. Vijay Pachpande - Vice President</li>
@@ -305,7 +305,7 @@ export default function Landing() {
                     </div>
 
                     <div className="w-[50%]">
-                        <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                        <ul className="max-w-md space-y-1  list-disc list-inside">
                             <li>Engr. Navnath Ghadge - Executive Chairman</li>
                             <li>Engr. Vishal Kokate - Secretary</li>
                             <li>Engr. Yashpal Hungergekar - Secretary</li>
