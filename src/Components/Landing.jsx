@@ -25,7 +25,6 @@ const nunito = Nunito
     })
 export default function Landing() {
     const [events, setEvents] = useState([]);
-    console.log(events);
 
     const fetchImages = async () => {
       try {
@@ -73,7 +72,7 @@ export default function Landing() {
                 />
             </div>
             <div className=" hidden1 w-[100%]   bg-white  flex justify-center">
-                <div className="w-[100%] h-[50vh] sm:h-[20vh] md:h-[20vh] bg-white mt-[-10rem] z-10 flex  justify-around flex-wrap xl:h-[25vh] gap-5 xl:flex-nowrap shadow-xl xl:w-[90%] text-center    ">
+                <div className="w-[100%] h-[70vh] sm:h-[25vh] md:h-[65vh] bg-white mt-[-10rem] z-10 flex  justify-around flex-wrap xl:h-[25vh] gap-5 xl:flex-nowrap shadow-xl xl:w-[90%] text-center    ">
                     <div className=" flex justify-center  items-center px-10 py-5  text-center gap-2">
                         <h1 className="text-[2.5rem] text-[#c72626] xl:text-[3rem] font-bold ">90</h1><h3 className="text-[0.7rem] w-14 xl:text-[0.8rem]">YEARS FOUNDATION</h3>
                     </div>

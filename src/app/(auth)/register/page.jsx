@@ -29,7 +29,6 @@ export default function RegisterForm() {
   const ChangeName = (e) => {
     const Name = e.target.value;
     setName(Name)
-    console.log(Name)
     const reg = /^[a-zA-Z\s]+$/;
 
     if(reg.test(Name)){
@@ -48,7 +47,6 @@ export default function RegisterForm() {
   const ChangeEmail = (e) => {
     const Email = e.target.value;
     setEmail(Email)
-    console.log(Email)
     const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if(reg.test(Email)){
@@ -66,7 +64,6 @@ export default function RegisterForm() {
   const ChangeNumber = (e) => {
     const Number = e.target.value;
     setNumber(Number)
-    console.log(Number)
     const reg = /^\d{10}$/;
 
     if(reg.test(Number)){
@@ -85,7 +82,6 @@ export default function RegisterForm() {
   const ChangeDeg = (e) => {
     const Deg = e.target.value;
     setDesignation(Deg)
-    console.log(Deg);
     const reg = /^[a-zA-Z0-9]+$/;
 
     if(reg.test(Deg)){
@@ -119,7 +115,6 @@ export default function RegisterForm() {
   const ChangePass2 = (e) => {
     const Pass2 = e.target.value;
     setConfirmPassword(Pass2)
-    console.log(Pass2);
     const reg = /^[a-zA-Z0-9]+$/;
 
     if(reg.test(Pass2)){
