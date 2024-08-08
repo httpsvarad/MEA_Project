@@ -28,7 +28,8 @@ export default function Footer() {
                     <Link href={'/'} className="p-2">Home</Link>
                     <Link href={'/background-of-mea'} className="p-2">Background of MEA</Link>
                     <Link href={'/contact-us'} className="p-2">Contact us</Link>
-                    <Link href={'/members-registration'} className="p-2">Members Registration</Link>
+                    <Link href={'/register'} className="p-2">Members Registration</Link>
+                    <Link href={'/register'} className="p-2">Recognition & AFFILIATION</Link>
                 </ul>
             </section>
             <section className=" p-5 h-full m-10 flex flex-col justify-center">
@@ -38,7 +39,8 @@ export default function Footer() {
                     <Link href={'/'} className="p-2">Home</Link>
                     <Link href={'/background-of-mea'} className="p-2">Background of MEA</Link>
                     <Link href={'/contact-us'} className="p-2">Contact us</Link>
-                    <Link href={'/register'} className="p-2">Members Registration</Link>
+                    <Link href={'/recognition-and-affiliation'} className="p-2">Members Registration</Link>
+                    <Link href={'/distinguished-honorary-fellows'} className="p-2">Distinguished Honorary Fellows</Link>
                 </ul>
             </section>
         </section>

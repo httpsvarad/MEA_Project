@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ['cdn.dnaindia.com'],
+  },
+}
 
 module.exports = nextConfig
 
-module.exports = {
-    experimental: {
-        appDir: true,
-      },
-}

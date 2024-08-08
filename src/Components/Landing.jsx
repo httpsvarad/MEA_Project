@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect,useState } from "react";
 import { IoCall } from "react-icons/io5";
-import BlackANDWHITE from "../Assets/IMGs/BlackANDWHITE.png"
 import heromage from "../Assets/IMGs/hero-image.png"
 import IMGs from "../Assets/IMGs/man.png"
 import { Nunito } from 'next/font/google'
@@ -66,10 +65,12 @@ export default function Landing() {
         <div>
             <Header />
         <div className=" w-[100%] bg-white flex gap-20 flex-col">
-            <div className=" w-full h-[100vh]  flex justify-center ">
+            <div className=" w-full h-[100vh] flex justify-center ">
                 <Image
-                    src={BlackANDWHITE}
-                    className=" w-[100%] h-[100%] object-right brightness-50 object-cover"
+                width={10000}
+                height={10000}
+                    src="/assets/images/flip_bg.png"
+                    className=" w-[100%] h-[100%] object-right object-cover"
                 />
             </div>
             <div className=" hidden1 w-[100%]   bg-white  flex justify-center">
