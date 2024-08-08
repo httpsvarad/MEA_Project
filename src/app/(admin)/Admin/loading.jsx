@@ -6,7 +6,7 @@ export default  function loading(){
             <NAV />
            <div className=" w-full bg-gray-100 flex justify-center items-center">
             <div className="flex justify-center items-center h-full">
-            <div class="w-12 h-12 border-2 border-red-600 rounded-full loader"></div>
+            <div className="w-12 h-12 border-2 border-red-600 rounded-full loader"></div>
             </div>
             </div>
         </div>

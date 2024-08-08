@@ -73,28 +73,23 @@ export async function GET(req) {
 
     // Execute the query to create the memberReg table
     const resultMemberReg = await executeQuery({ query: createMemberRegTable });
-    console.log("memberReg table created or already exists.");
 
     // Execute the query to create the replies table
     const resultReplies = await executeQuery({ query: createRepliesTable });
-    console.log("replies table created or already exists.");
 
     const resultMembers = await executeQuery({ query: createMembersTable });
-    console.log("members table created or already exists.");
 
     const resultEvents = await executeQuery({ query: createEventsTable });
-    console.log("events table created or already exists.");
+
 
     const resultGallery = await executeQuery({ query: createGalleryTable });
-    console.log("gallery table created or already exists.");
+
 
     const resultHonorary = await executeQuery({ query: createHonoraryTable });
-    console.log("honorary table created or already exists.");
     // Return the result as a JSON response
     return NextResponse.json({ result: { resultMemberReg, resultReplies, resultMembers, resultEvents, resultGallery, resultHonorary } });
 
   } catch (err) {
-    console.error("Error executing query:", err);
 
     // Return an error response
     return NextResponse.json({ error: "Error executing query" }, { status: 500 });

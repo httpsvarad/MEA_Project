@@ -14,7 +14,6 @@ export default function Page() {
         throw new Error("Failed to fetch images.");
       }
       const result = await response.json();
-      console.log(result);
       setEvents(result);
     } catch (error) {
       console.error("Error fetching images:", error);

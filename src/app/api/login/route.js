@@ -10,7 +10,6 @@ export async function POST(req) {
         //     body[key] = value
         // })
 
-        console.log(data)
 
         const { email, password} = data
         
@@ -23,7 +22,6 @@ export async function POST(req) {
             //check password
             const originalPassword = await doesEmailExist[0][0].password 
             const match = await bcrypt.compare(password, originalPassword) 
-            console.log(match)
 
             if (match) {
                 return NextResponse.json({"Your Data:" : doesEmailExist[0][0]})
@@ -35,7 +33,6 @@ export async function POST(req) {
         } else {
             return NextResponse.json({ error: 'email dekhle ekbaar' }, { status: 401 })
         }
-        console.log(doesEmailExist)
 
     } catch (e){
         console.log(e)

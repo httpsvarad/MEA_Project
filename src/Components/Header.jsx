@@ -13,7 +13,6 @@ import GoogleTranslate from "../Components/gtranslate/gtrans";
 export default function Header() {
   const [active, setActive] = useState(false);
   const { data: session } = useSession();
-  console.log(session)
 
   useEffect(() => {
     if (typeof document !== "undefined") {

@@ -23,14 +23,11 @@ export async function POST(req) {
 
         const url = new URL(req.url);
         const id = url.searchParams.get('id'); 
-        console.log(id)
         const result = await executeQuery({
             query: `SELECT * FROM memberReg WHERE id = ${id}` 
         })
 
         const {fullName, email, contactNumber, designation, password ,isApproved, Role} = result[0]
-        console.log(fullName, email, contactNumber, designation, password ,isApproved, Role)
-        console.log("Adding " + fullName+ " to members")
 
         //marking member as approved
         const status = await changeStatus(id)

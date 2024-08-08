@@ -62,7 +62,6 @@ export async function POST(req) {
     }
 
   } catch (err) {
-    console.log(err);
     return NextResponse.json(err, { status: 500 });
   }
 }
@@ -74,7 +73,6 @@ export async function GET(req) {
     });
     return NextResponse.json(result);
   } catch (e) {
-    console.log(e);
     return NextResponse.json(e, { status: 500 });
   }
 }

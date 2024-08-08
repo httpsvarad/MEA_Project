@@ -18,11 +18,9 @@ export async function DELETE(req) {
             query: `DELETE FROM members WHERE memberId=${id}`
         })
 
-        console.log(result)
         if (result.affectedRows == 1) {
             return NextResponse.json('Member has been Deleted!', {status: 200})
         } else {
-            console.log(result)
             return NextResponse.json('could not delete member, an error occured', {status: 500})
         }
 
