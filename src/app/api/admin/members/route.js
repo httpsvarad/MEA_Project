@@ -38,7 +38,6 @@ export async function POST(req) {
                 query: `INSERT INTO members (fullName, email, contactNumber, designation, password, Role) VALUES(?,?,?,?,?,?)`,
                 values: [fullName, email, contactNumber, designation, password , Role]
             })
-            console.log(isAdded)
 
             return NextResponse.json('Member has been approved and added successfully', {status: 201})
 

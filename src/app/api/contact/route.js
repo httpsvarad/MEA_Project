@@ -8,8 +8,6 @@ export async function POST(req) {
         // data.forEach((value, key) => {
         //     body[key] = value
         // }) 
-
-        console.log(data)
         const { fullName, email, contactNumber, address, message} = data
 
         const result = await executeQuery({

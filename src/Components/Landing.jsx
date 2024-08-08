@@ -104,12 +104,14 @@ export default function Landing() {
                     </div>
                     <div className="w-[100%]  xl:w-[30%] md:h-[80] xl:h-[50vh] hidden3 ">
                         <Image src={heromage}
+                        alt="heroimage"
                             className="w-[100%] h-[100%] xl:h-[100%] object-fit  "
 
                         />
                     </div>
                     <div className="w-[100%]  xl:w-[30%] md:h-[80%] xl:h-[50vh] hidden3 ">
                         <Image src={heromage}
+                        alt="hero image"
                             className="w-[100%] h-[100%] xl:h-[100%] object-fit  "
 
                         />

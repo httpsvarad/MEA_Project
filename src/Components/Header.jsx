@@ -70,6 +70,7 @@ export default function Header() {
         <div className="flex w-[100%] bg-white justify-start justify-items-center h-[12vh]">
           <div className="flex">
             <Image
+            alt="logo"
               src={LOGO}
               className="EMALOGOP ml-2"
               width={100}
