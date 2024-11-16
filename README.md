@@ -51,7 +51,7 @@ npm start
 
 ---
 
-## 👥 Contributors  
+## 💻 Contributors  
 
 - **Varad Manegopale**
 - **Pranav Molawade**
