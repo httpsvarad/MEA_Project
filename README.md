@@ -1,6 +1,6 @@
 # Municipal Engineer Association (MEA) Platform  
 
-The **Municipal Engineer Association (MEA)** website is a robust platform designed for the **Brihanmumbai Municipal Corporation (BMC)**. Built with **Next.js**, **MySQL**, and **NextAuth** for secure authentication, the platform is tailored to meet the unique requirements of municipal engineers.  
+The **Municipal Engineer Association (MEA)** website is a robust platform designed for the **Brihanmumbai Municipal Corporation (BMC)** Built with **Next.js**, **MySQL**, and **NextAuth** for secure authentication, the platform is tailored to meet the unique requirements of municipal engineers.  
 
 ---
 
