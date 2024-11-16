@@ -15,7 +15,7 @@ The **Municipal Engineer Association (MEA)** website is a robust platform design
 ---
 
 ## 🌟 Installation  
-
+    
 ### 1. Clone the repository  
 ```bash  
 git clone https://github.com/your-username/mea-platform.git  
